@@ -11,25 +11,25 @@ uint8_t key1;
 
 void test_moto_control(void)
 {
-   //LED¿ØÖÆº¯Êı
+   //LEDæ§åˆ¶å‡½æ•°
 	 write_led_io(LED_IO1,LED_ON );	
 	
-   //µç»úµÄËÙ¶È¸ø¶¨
+   //ç”µæœºçš„é€Ÿåº¦ç»™å®š
    test_moto_speed = rc.ch2 / RC_MAX_VALUE * MAX_WHEEL_RPM;
   
-   //±Õ»·¼ÆËãµç»úµçÁ÷
+   //é—­ç¯è®¡ç®—ç”µæœºç”µæµ
    test_moto_current[0] = pid_calc(&pid_test_moto, moto_test.speed_rpm, test_moto_speed);
    
-   //·¢ËÍµç»úµÄµçÁ÷
+   //å‘é€ç”µæœºçš„ç”µæµ
    set_test_motor_current(test_moto_current);
 	
-   //¶æ»ú¿ØÖÆº¯ÊıÖÜÆÚÉè¶¨
+   //èˆµæœºæ§åˆ¶å‡½æ•°å‘¨æœŸè®¾å®š
    set_pwm_group_param(PWM_GROUP1,20000);
 	
-   //¿ªÆô¿ØÖÆ¶Ë¿Ú
+   //å¼€å¯æ§åˆ¶ç«¯å£
    start_pwm_output(PWM_IO1);
     
-	//¶æ»ú¿ØÖÆÃüÁî
+	//èˆµæœºæ§åˆ¶å‘½ä»¤
 		if(test_servo == 0 )
 		  {
 			set_pwm_param(PWM_IO1,2200);
@@ -40,7 +40,7 @@ void test_moto_control(void)
 		  }
    
 
-//  À©Õ¹°åµÄ°´¼ü¿ØÖÆµç»ú
+//  æ‰©å±•æ¿çš„æŒ‰é”®æ§åˆ¶ç”µæœº
 //      read_key_io(KEY_IO1,&key1);  
 //			if(key1 ==1)
 //		{
@@ -49,10 +49,10 @@ void test_moto_control(void)
 			
 			
 }
-   //µç»ú³õÊ¼»¯²ÎÊıÉè¶¨
+   //ç”µæœºåˆå§‹åŒ–å‚æ•°è®¾å®š
    void test_moto_init(void)
    {
-   //PID²ÎÊı³õÊ¼»¯		 
+   //PIDå‚æ•°åˆå§‹åŒ–		 
 	     pid_init(&pid_test_moto, 7000, 0, 1, 0, 0);
 
    }
