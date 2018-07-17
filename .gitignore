@@ -2,17 +2,13 @@
 # reference to Keil->help->µVision User's Guide->Appendix->B. File Types
 
 # Project Files
-!*.OPT
 *.UVGUI.*
 *.UVGUIX.*
-!*.UVMPW
-!*.UVPROJ
-!*.UVPROJX
-!*.UVOPT
-!*.UVOPTX
-!*.UV2
 
 # Source Files
+Project/rm_infantry.*
+Project/rm_infantry.uvoptx
+Project/rm_infantry.uvprojx
 !*.A51
 !*.A66
 !*.C
@@ -55,6 +51,7 @@
 
 # Debugger Files
 *.INI
+Log.docx
 
 # Other Files
 *.BUILD_LOG.HTM
