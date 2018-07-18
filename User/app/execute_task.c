@@ -10,6 +10,7 @@
 
 //uint8_t test_key_value;
 extern uint8_t test_servo;
+imu_t imu1;
 
 //uint16_t servo_angle = 1000;
 
@@ -17,24 +18,12 @@ extern uint8_t test_servo;
 
 void execute_task(const void* argu)
 {
-   //²âÊÔµç»ú³õÊ¼»¯	
-   test_moto_init();
-
+   //æµ‹è¯•ç”µæœºåˆå§‹åŒ–	
+	
    while(1)
   {
-   //²âÊÔµç»ú¿ØÖÆ³ÌĞò
-    test_moto_control();
-		
-		if(rc.sw2 == 3)
-			{
-		   test_servo=1;
-			}
-   
-		else
-		  {
-			(test_servo =0);
-		  }
-			
-    osDelay(5);
+   //æµ‹è¯•ç”µæœºæ§åˆ¶ç¨‹åº
+		get_imu_data(&imu1);
+    osDelay(50);
   }
 }
