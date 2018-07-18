@@ -33,16 +33,16 @@ Project/DebugConfig/
 
 # Object and HEX Files
 # *.
-*.AXF
+*.axf
 *.B[00-31]
-*.D
-*.CRF
+*.d
+*.crf
 *.ELF
-*.HEX
+*.hex
 *.H86
-*.LIB
-*.OBJ
-*.O
+*.lib
+*.obj
+*.o
 *.SBR
 
 # Build Files
@@ -57,21 +57,21 @@ Project/DebugConfig/
 Log.docx
 
 # Other Files
-*.BUILD_LOG.HTM
-*.CDB
-*.DEP
+*.build_log.htm
+*.cdb
+*.dep
 *.IC
-*.LIN
+*.lin
 *.LNP
 *.ORC
-*.PACK
+*.pack
 *.PDSC
 *.PLG
 PROJECT_GUI.XSD
 PROJECT_MPW.XSD
 PROJECT_OPT.XSD
 PROJECT_PROJ.XSD
-*.SCT
+*.sct
 *.UVL
 *.UVLA
 *.UVTSK
