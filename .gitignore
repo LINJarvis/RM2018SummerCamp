@@ -9,6 +9,9 @@
 Project/rm_infantry.*
 Project/rm_infantry.uvoptx
 Project/rm_infantry.uvprojx
+Project/Output/
+Project/DebugConfig/
+
 !*.A51
 !*.A66
 !*.C
@@ -78,3 +81,107 @@ PROJECT_PROJ.XSD
 *.SVD
 *.XML
 bash.exe.stackdump
+
+# Prerequisites
+
+*.d
+
+
+
+# Object files
+
+*.o
+
+*.ko
+
+*.obj
+
+*.elf
+
+
+
+# Linker output
+
+*.ilk
+
+*.map
+
+*.exp
+
+
+
+# Precompiled Headers
+
+*.gch
+
+*.pch
+
+
+
+# Libraries
+
+*.lib
+
+*.a
+
+*.la
+
+*.lo
+
+
+
+# Shared objects (inc. Windows DLLs)
+
+*.dll
+
+*.so
+
+*.so.*
+
+*.dylib
+
+
+
+# Executables
+
+*.exe
+
+*.out
+
+*.app
+
+*.i*86
+
+*.x86_64
+
+*.hex
+
+
+
+# Debug files
+
+*.dSYM/
+
+*.su
+
+*.idb
+
+*.pdb
+
+
+
+# Kernel Module Compile Results
+
+*.mod*
+
+*.cmd
+
+.tmp_versions/
+
+modules.order
+
+Module.symvers
+
+Mkfile.old
+
+dkms.conf
