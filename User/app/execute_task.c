@@ -24,6 +24,7 @@ void execute_task(const void* argu)
   {
    //测试电机控制程序
 		get_imu_data(&imu1);
+    send_gimbal_moto_current(1000, 1000);
     osDelay(50);
   }
 }
