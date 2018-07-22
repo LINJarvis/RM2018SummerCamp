@@ -185,3 +185,6 @@ Module.symvers
 Mkfile.old
 
 dkms.conf
+/Project/rm_infantry/*.iex
+/*.tmp
+/~$Log.docx

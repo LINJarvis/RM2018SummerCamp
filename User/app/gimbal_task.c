@@ -193,7 +193,6 @@ void get_gimbal_information(void)
   gim.last_mode = gim.ctrl_mode;
   
   //读取遥控器的控制命令
-  pc_kb_hook();
 }
 
 uint8_t last_cali_cmd;
