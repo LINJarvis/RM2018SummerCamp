@@ -110,4 +110,7 @@ extern pid_t pid_trigger;
 extern pid_t pid_trigger_speed;
     
 extern pid_t pid_test_moto;
+extern pid_t pid_pick_speed;
+extern pid_t pid_pick_dist;
+
 #endif

@@ -17,12 +17,12 @@ extern uint8_t test_servo;
 
 void execute_task(const void* argu)
 {
-   //²âÊÔµç»ú³õÊ¼»¯	
+   //æµ‹è¯•ç”µæœºåˆå§‹åŒ–	
    test_moto_init();
 
    while(1)
   {
-   //²âÊÔµç»ú¿ØÖÆ³ÌĞò
+   //æµ‹è¯•ç”µæœºæ§åˆ¶ç¨‹åº
     test_moto_control();
 		
 		if(rc.sw2 == 3)

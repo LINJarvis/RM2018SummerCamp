@@ -32,13 +32,18 @@
 #include "detect_task.h"
 #include "sys.h"
 
-/* 云台电机 */
-moto_measure_t moto_pit;
+/* 云台电机 弃用*/
 moto_measure_t moto_yaw;
+moto_measure_t moto_pit;
+
+
 /* 拨弹电机 */
 moto_measure_t moto_trigger;
 /* 底盘电机 */
-moto_measure_t moto_chassis[4];
+moto_measure_t moto_chassis[4]; //cAN1, ID1~4
+moto_measure_t moto_pick1; //CAN1, ID5
+moto_measure_t moto_pick2; //CAN1, ID6
+
 /* 外围模块测试电机 */
 moto_measure_t moto_test;
 
@@ -80,16 +85,16 @@ void can1_recv_callback(uint32_t recv_id, uint8_t data[])
       err_detector_hook(CHASSIS_M4_OFFLINE);
     }
     break;
-    case CAN_YAW_MOTOR_ID:
+    case CAN_PICK1_ID:
     {
-      encoder_data_handle(&moto_yaw, data);
-      err_detector_hook(GIMBAL_YAW_OFFLINE);
+      moto_pick1.msg_cnt++ <= 50 ? get_moto_offset(&moto_pick1, data) : \
+      encoder_data_handle(&moto_pick1, data);
     }
     break;
-    case CAN_PIT_MOTOR_ID:
+    case CAN_PICK2_ID:
     {
-      encoder_data_handle(&moto_pit, data);
-      err_detector_hook(GIMBAL_PIT_OFFLINE);
+      moto_pick2.msg_cnt++ <= 50 ? get_moto_offset(&moto_pick2, data) : \
+      encoder_data_handle(&moto_pick2, data);
     }
     break;
     case CAN_TRIGGER_MOTOR_ID:
@@ -258,17 +263,19 @@ void send_gimbal_moto_zero_current(void)
   
   write_can(GIMBAL_CAN, CAN_GIMBAL_ID, data);
 }
-void set_test_motor_current(int16_t test_moto_current[])
+void send_arm_moto_current(int16_t current[])
 {
   static uint8_t data[8];
-  
-  data[0] = 0;
-  data[1] = 0;
-  data[2] = 0;
-  data[3] = 0;
-  data[4] = 0;
-  data[5] = 0;
-  data[6] = test_moto_current[0] >> 8;;
-  data[7] = test_moto_current[0];;
-  write_can(CHASSIS_CAN, CAN_GIMBAL_ID, data);
+
+  data[0] = current[0] >> 8;
+  data[1] = current[0];
+  data[2] = current[1] >> 8;
+  data[3] = current[1];
+  data[4] = current[2] >> 8;
+  data[5] = current[2];
+  data[6] = current[3] >> 8;
+  data[7] = current[3];
+
+  write_can(1, 0x1ff, data); // CAN1 5-8
 }
+

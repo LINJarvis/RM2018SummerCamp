@@ -43,8 +43,8 @@ typedef enum
   CAN_3508_M2_ID       = 0x202,
   CAN_3508_M3_ID       = 0x203,
   CAN_3508_M4_ID       = 0x204,
-  CAN_YAW_MOTOR_ID     = 0x205,
-  CAN_PIT_MOTOR_ID     = 0x206, 
+  CAN_PICK1_ID     = 0x205,
+  CAN_PICK2_ID     = 0x206, 
   CAN_TRIGGER_MOTOR_ID = 0x207,
   CAN_test_moto_ID     = 0x208,
 
@@ -81,9 +81,12 @@ typedef struct
   int32_t  filter_rate;
 } moto_measure_t;
 
-extern moto_measure_t moto_chassis[];
+/* 云台电机 弃用*/
 extern moto_measure_t moto_yaw;
 extern moto_measure_t moto_pit;
+extern moto_measure_t moto_chassis[];
+extern moto_measure_t moto_pick1;
+extern moto_measure_t moto_pick2;
 extern moto_measure_t moto_trigger;
 extern moto_measure_t moto_test;
 
@@ -123,6 +126,6 @@ void send_chassis_moto_zero_current(void);
   */
 void send_gimbal_moto_current(int16_t yaw_current, int16_t pit_current);
 void send_gimbal_moto_zero_current(void);
-void set_test_motor_current(int16_t current_data[]);
+void send_arm_moto_current(int16_t current[]);
 
 #endif

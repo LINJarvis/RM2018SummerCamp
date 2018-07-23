@@ -16,7 +16,6 @@
 ".\rm_infantry\test_custom.o"
 ".\rm_infantry\stm32f4xx_it.o"
 "..\Inc\rm_infantry1_3.lib"
---feedback ".\rm_infantry\rm_infantry.fed" --feedback_image=none
 --strict --scatter ".\rm_infantry\rm_infantry.sct"
 --diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
