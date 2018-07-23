@@ -23,6 +23,7 @@ void test_moto_control(void)
    //发送电机的电流
    set_test_motor_current(test_moto_current);
 	
+	
    //舵机控制函数周期设定
    set_pwm_group_param(PWM_GROUP1,20000);
 	
@@ -32,11 +33,14 @@ void test_moto_control(void)
 	//舵机控制命令
 		if(test_servo == 0 )
 		  {
-			set_pwm_param(PWM_IO1,2200);
+			//set_pwm_param(PWM_IO1,2200);
+				write_digital_io(1,1);
+				
 		  }
 		else
 		  {
-		  set_pwm_param(PWM_IO1,1500);
+		  //set_pwm_param(PWM_IO1,1500);
+				write_digital_io(1,0);
 		  }
    
 
@@ -54,5 +58,6 @@ void test_moto_control(void)
    {
    //PID参数初始化		 
 	     pid_init(&pid_test_moto, 7000, 0, 1, 0, 0);
+			 set_digital_io_dir(1,IO_OUTPUT);
 
    }
