@@ -5,8 +5,11 @@
 
 void execute_task(const void* argu);
 
-void test_moto_init(void);
-void test_moto_control(void);
+void arm_moto_init(void);
+void arm_moto_control(void);
+
+void storage_moto_init(void);
+void storage_moto_control(void);
 
 #endif
 

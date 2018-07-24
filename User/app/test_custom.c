@@ -4,7 +4,7 @@
 #include "pid.h"
 #include "sys.h"
 
-int16_t test_moto_speed = 0;
+/* int16_t test_moto_speed = 0;
 int16_t test_moto_current[1];
 
 void test_moto_control(void)
@@ -26,3 +26,4 @@ void test_moto_init(void)
  pid_init(&pid_pit, 7000, 0,
                   1, 0, 0); 
 }
+*/

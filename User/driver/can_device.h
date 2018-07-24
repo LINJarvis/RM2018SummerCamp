@@ -43,10 +43,13 @@ typedef enum
   CAN_3508_M2_ID       = 0x202,
   CAN_3508_M3_ID       = 0x203,
   CAN_3508_M4_ID       = 0x204,
-  CAN_PICK1_ID     = 0x205,
-  CAN_PICK2_ID     = 0x206, 
-  CAN_TRIGGER_MOTOR_ID = 0x207,
-  CAN_test_moto_ID     = 0x208,
+
+  CAN_ARM1_ID     = 0x205,
+  CAN_ARM2_ID     = 0x206, 
+  CAN_ARM3_ID     = 0x207,
+  CAN_ARM4_ID     = 0x208, 
+ // CAN_TRIGGER_MOTOR_ID = 0x207,
+//  CAN_test_moto_ID     = 0x208,
 
 	
   //发送ID
@@ -84,11 +87,13 @@ typedef struct
 /* 云台电机 弃用*/
 extern moto_measure_t moto_yaw;
 extern moto_measure_t moto_pit;
-extern moto_measure_t moto_chassis[];
-extern moto_measure_t moto_pick1;
-extern moto_measure_t moto_pick2;
 extern moto_measure_t moto_trigger;
 extern moto_measure_t moto_test;
+
+extern moto_measure_t moto_chassis[]; //cAN1, ID1~4
+
+extern moto_measure_t moto_arms[]; //cAN1, ID5~8
+extern moto_measure_t moto_storage[]; //cAN2, ID1~2
 
 /**
   * @brief     CAN1 中断回调函数，在程序初始化时注册
@@ -126,6 +131,9 @@ void send_chassis_moto_zero_current(void);
   */
 void send_gimbal_moto_current(int16_t yaw_current, int16_t pit_current);
 void send_gimbal_moto_zero_current(void);
+
+
 void send_arm_moto_current(int16_t current[]);
+void send_storage_moto_current(int16_t current[]);
 
 #endif

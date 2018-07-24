@@ -1,5 +1,13 @@
 {
     "files.associations": {
-        "cmsis_os.h": "c"
+        "cmsis_os.h": "c",
+        "sys.h": "c",
+        "execute_task.h": "c",
+        "can_device.h": "c",
+        "xutility": "c",
+        "string": "c",
+        "vector": "c",
+        "xstring": "c",
+        "rm_hal_lib.h": "c"
     }
 }

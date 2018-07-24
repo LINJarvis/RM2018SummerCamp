@@ -110,7 +110,17 @@ extern pid_t pid_trigger;
 extern pid_t pid_trigger_speed;
     
 extern pid_t pid_test_moto;
-extern pid_t pid_pick_speed;
-extern pid_t pid_pick_dist;
+
+
+// CAN1: 0x1ff
+//    [0] 5 - fric wheel 1 (2006)
+//    [1] 6 - fric wheel 2 (2006)
+//    [2] 7 - up&down      (3508)
+//    [3] 8 - pitch        (3508)
+//
+//    [X] [0] ecd_set [1] speed_set
+
+extern pid_t pid_arms[2][4];
+extern pid_t pid_storage[2][2];
 
 #endif

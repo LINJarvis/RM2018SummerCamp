@@ -1,6 +1,0 @@
--c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\Inc -I ..\Inc\hal_inc -I ..\Inc\m3_inc -I ..\Inc\os_inc -I ..\Inc\hal_inc\Legacy -I ..\User -I ..\User\algorithm -I ..\User\app -I ..\User\driver --C99
--I C:\Users\DJ\Desktop\RM2018SummerCamp\Project\RTE
--I C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.9.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
--I C:\Keil_v5\ARM\CMSIS\Include
--D__UVISION_VERSION="520" -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx --C99
--o .\rm_infantry\calibrate.o --omf_browse .\rm_infantry\calibrate.crf --depend .\rm_infantry\calibrate.d --feedback ".\rm_infantry\rm_infantry.fed" "..\User\driver\calibrate.c"

@@ -41,8 +41,8 @@ moto_measure_t moto_pit;
 moto_measure_t moto_trigger;
 /* 底盘电机 */
 moto_measure_t moto_chassis[4]; //cAN1, ID1~4
-moto_measure_t moto_pick1; //CAN1, ID5
-moto_measure_t moto_pick2; //CAN1, ID6
+moto_measure_t moto_arms[4]; //cAN1, ID5~8
+moto_measure_t moto_storage[2]; //cAN2, ID1~2
 
 /* 外围模块测试电机 */
 moto_measure_t moto_test;
@@ -85,30 +85,28 @@ void can1_recv_callback(uint32_t recv_id, uint8_t data[])
       err_detector_hook(CHASSIS_M4_OFFLINE);
     }
     break;
-    case CAN_PICK1_ID:
+    case CAN_ARM1_ID:
     {
-      moto_pick1.msg_cnt++ <= 50 ? get_moto_offset(&moto_pick1, data) : \
-      encoder_data_handle(&moto_pick1, data);
+      moto_arms[0].msg_cnt++ <= 50 ? get_moto_offset(&moto_arms[0], data) : \
+      encoder_data_handle(&moto_arms[0], data);
     }
     break;
-    case CAN_PICK2_ID:
+    case CAN_ARM2_ID:
     {
-      moto_pick2.msg_cnt++ <= 50 ? get_moto_offset(&moto_pick2, data) : \
-      encoder_data_handle(&moto_pick2, data);
+      moto_arms[1].msg_cnt++ <= 50 ? get_moto_offset(&moto_arms[1], data) : \
+      encoder_data_handle(&moto_arms[1], data);
     }
     break;
-    case CAN_TRIGGER_MOTOR_ID:
+    case CAN_ARM3_ID:
     {
-      moto_trigger.msg_cnt++;
-      moto_trigger.msg_cnt <= 10 ? get_moto_offset(&moto_trigger, data) : encoder_data_handle(&moto_trigger, data);
-      err_detector_hook(TRIGGER_MOTO_OFFLINE);
+      moto_arms[2].msg_cnt++ <= 50 ? get_moto_offset(&moto_arms[2], data) : \
+      encoder_data_handle(&moto_arms[2], data);
     }
     break;
-    case CAN_test_moto_ID:
+    case CAN_ARM4_ID:
     {
-      moto_test.msg_cnt++ <= 50 ? get_moto_offset(&moto_test, data) : \
-      encoder_data_handle(&moto_test, data);
-      
+      moto_arms[3].msg_cnt++ <= 50 ? get_moto_offset(&moto_arms[3], data) : \
+      encoder_data_handle(&moto_arms[3], data);
     }
     break;
 		
@@ -132,6 +130,32 @@ void can2_recv_callback(uint32_t recv_id, uint8_t data[])
   {
     //case CAN2 device handle
     
+    case CAN_3508_M1_ID:
+    {
+      moto_storage[0].msg_cnt++ <= 50 ? get_moto_offset(&moto_storage[0], data) : \
+      encoder_data_handle(&moto_storage[0], data);
+    }
+    break;
+    case CAN_3508_M2_ID:
+    {
+      moto_storage[1].msg_cnt++ <= 50 ? get_moto_offset(&moto_storage[1], data) : \
+      encoder_data_handle(&moto_storage[1], data);
+    }
+    break;
+
+    /*case CAN_3508_M3_ID:
+    {
+      moto_chassis[2].msg_cnt++ <= 50 ? get_moto_offset(&moto_chassis[2], data) : \
+      encoder_data_handle(&moto_storage[2], data);
+    }
+    break;
+    case CAN_3508_M4_ID:
+    {
+      moto_chassis[3].msg_cnt++ <= 50 ? get_moto_offset(&moto_chassis[3], data) : \
+      encoder_data_handle(&moto_storage[3], data);
+    }
+    break;*/
+		
     default:
     {
     }
@@ -263,7 +287,7 @@ void send_gimbal_moto_zero_current(void)
   
   write_can(GIMBAL_CAN, CAN_GIMBAL_ID, data);
 }
-void send_arm_moto_current(int16_t current[])
+void send_arm_moto_current(int16_t current[4])
 {
   static uint8_t data[8];
 
@@ -278,4 +302,22 @@ void send_arm_moto_current(int16_t current[])
 
   write_can(1, 0x1ff, data); // CAN1 5-8
 }
+
+
+void send_storage_moto_current(int16_t current[2])
+{
+  static uint8_t data[8];
+
+  data[0] = current[0] >> 8;
+  data[1] = current[0];
+  data[2] = current[1] >> 8;
+  data[3] = current[1];
+  data[4] = 0;
+  data[5] = 0;
+  data[6] = 0;
+  data[7] = 0;
+
+  write_can(2, 0x200, data); // CAN2 1-4
+}
+
 
