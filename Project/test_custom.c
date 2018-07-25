@@ -32,8 +32,8 @@ int16_t arms[3][4];
 int16_t storage[3][2];
 // CAN2: 0x200
 //   [X] [0] angle_set [1] speed_set [2] current
-//       [0] 1 - somewhat (2006)
-//           left: 0(init), right: 
+//       [0] 1 - l/r (2006)
+//           l: 0(init), r: 32900, med: 15790
 //       [1] 2 - somewhat (2006)
 
 int16_t height;
@@ -84,7 +84,7 @@ void arm_moto_control(void)
         }
 
         if (time_after_start >= 2 && time_after_start < 3)
-            arms[0][2] = 300; // up&down goes upward to value set
+            arms[0][2] = 350; // up&down goes upward to value set
 
         if (time_after_start >= 3 && time_after_start < 6)
         {
@@ -252,15 +252,12 @@ void arm_moto_init(void)
 void storage_moto_control(void)
 {
     //relay trigger
-    int someecd = 0;
-    int time_after_start = HAL_GetTick() - pick_time_begin;
-
     if (which_storage == 0)
-        storage[0][0] = someecd;
+        storage[0][0] = 0;
     if (which_storage == 1)
-        storage[0][0] = someecd;
+        storage[0][0] = 0;
     if (which_storage == 2)
-        storage[0][0] = someecd;
+        storage[0][0] = 0;
     storage[2][0] = pid_calc(&pid_storage[1][0], moto_storage[0].speed_rpm,
                              pid_calc(&pid_storage[0][0], moto_storage[0].total_angle / 36.0, storage[0][0]));
     //storage[2][1] = pid_calc(&pid_storage[1][1], moto_storage[1].speed_rpm,
@@ -273,19 +270,19 @@ void storage_moto_init(void)
 {
     // PID init:
     //   [0] angle_set
-    //       [0] 1 - somewhat (2006)
+    //       [0] 1 - l/r (2006)
     //       [1] 2 - somewhat (2006)
 
-    pid_init(&pid_storage[0][0], 7000, 0, 10, 0.1, 0);
-    pid_init(&pid_storage[0][1], 7000, 0, 10, 0.1, 0);
+    pid_init(&pid_storage[0][0], 7000, 0, 0.5, 0.1, 0);
+    pid_init(&pid_storage[0][1], 7000, 0, 0.5, 0.1, 0);
 
     // PID init:
     //   [1] speed_set
-    //       [0] 1 - somewhat (2006)
+    //       [0] 1 - l/r (2006)
     //       [1] 2 - somewhat (2006)
 
-    pid_init(&pid_storage[1][0], 7000, 0, 50, 0.1, 0);
-    pid_init(&pid_storage[1][1], 7000, 0, 50, 0.1, 0);
+    pid_init(&pid_storage[1][0], 7000, 0, 1, 0.1, 0);
+    pid_init(&pid_storage[1][1], 7000, 0, 1, 0.1, 0);
 
     set_digital_io_dir(3, IO_INPUT);
     set_digital_io_dir(4, IO_INPUT);

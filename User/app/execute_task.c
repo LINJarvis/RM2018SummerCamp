@@ -47,11 +47,25 @@ void execute_task(const void *argu)
         }
         if (rc.kb.bit.V)
         {
-            which_storage = 0;
+            if (rc.kb.bit.SHIFT == 0)
+            {
+                which_storage = 0;
+            }
+            else
+            {
+                which_storage = 1;
+            }
         }
         if (rc.kb.bit.B)
         {
-            which_storage = 1;
+            if (rc.kb.bit.SHIFT == 0)
+            {
+                which_storage = 0;
+            }
+            else
+            {
+                which_storage = 2;
+            }
         }
 
         arm_moto_control();
