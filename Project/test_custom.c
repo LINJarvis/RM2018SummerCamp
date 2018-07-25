@@ -24,7 +24,7 @@ int16_t arms[3][4];
 //       [1] 6 - fric wheel 2 (2006)
 //           any situ: - (fric wheel 1)
 //       [2] 7 - up&down      (3508)
-//           init: N/A, situ1: N/A, situ2: N/A
+//           init: N/A, situ1: N/A, situ2: -500
 //       [3] 8 - pitch        (3508)
 //           init: 60, situ1: 0, situ2: 270
 //           max: 1330
@@ -33,7 +33,7 @@ int16_t storage[3][2];
 // CAN2: 0x200
 //   [X] [0] angle_set [1] speed_set [2] current
 //       [0] 1 - l/r (2006)
-//           l: 0(init), r: 32900, med: 15790
+//           med: 0(init), l: 515, r: N/A
 //       [1] 2 - somewhat (2006)
 
 int16_t height;
@@ -48,14 +48,11 @@ void arm_moto_control(void)
     //set_pwm_param(PWM_IO1,2200);
 
     //relay trigger
-    time_after_start = (HAL_GetTick() - pick_time_begin)/1000;
+    time_after_start = (HAL_GetTick() - pick_time_begin) / 100;
 
     if (if_pick == 1)
     {
-        pid_init(&pid_arms[0][3], 7000, 0, -1, 0, 0);
-        arms[0][3] = 10; //pitch goes downward but little lifted up
-        if (moto_arms[3].total_angle < 10)
-            pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
+        pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
         height = 0; // reset no. of blocks
 
         read_digital_io(5, &ir_sensor[0]);  //block 0
@@ -71,53 +68,55 @@ void arm_moto_control(void)
                 height++;
         }
 
-        if (time_after_start < 1)
+        if (time_after_start < 5)
         {
-            pid_init(&pid_arms[0][3], 7000, 0, -1, 0, 0);
-            arms[0][3] = 10; // pitch goes downward
+            arms[0][3] = 0; // pitch goes downward
         }
 
-        if (time_after_start >= 1 && time_after_start < 2)
+        if (time_after_start >= 5 && time_after_start < 10)
         {
             arms[0][0] = 60; // fric goes, brick picked
             arms[0][1] = -60;
         }
 
-        if (time_after_start >= 2 && time_after_start < 3)
-            arms[0][2] = 350; // up&down goes upward to value set
+        if (time_after_start >= 10 && time_after_start < 20)
+            arms[0][2] = 400; // up&down goes upward to value set
 
-        if (time_after_start >= 3 && time_after_start < 6)
+        if (time_after_start >= 20 && time_after_start < 40)
         {
             pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
             arms[0][3] = 180; // pitch goes upward to critical
         }
 
-        if (time_after_start >= 6&& time_after_start < 7 )
+        if (time_after_start >= 40 && time_after_start < 45)
         {
-            pid_init(&pid_arms[0][3], 7000, 0, -1, 0, 0);
+            pid_init(&pid_arms[0][3], 7000, 0, 1, 0, 0);
             arms[0][3] = 255; // pitch goes from critical to value set
         }
 
-        if (time_after_start >= 7 && time_after_start < 8)
+        if (time_after_start >= 45 && time_after_start < 50)
         {
-            arms[0][0] = 120; // fric continues going, brick stored
-            arms[0][1] = -120;
+            arms[0][0] = 140; // fric continues going, brick stored
+            arms[0][1] = -140;
         }
 
-        if (time_after_start >= 8 && time_after_start < 9)
+        if (time_after_start >= 50 && time_after_start < 60)
         {
             pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
             arms[0][3] = 120; // pitch goes back to critical vaule
         }
 
-        if (time_after_start >= 9)
+        if (time_after_start >= 60 && time_after_start < 65)
         {
             pid_init(&pid_arms[0][3], 7000, 0, -1, 0, 0);
             arms[0][3] = 70; // pitch resets
+        }
+        if (time_after_start >= 65)
+        {
             arms[0][2] = 0;  // up&down resets
             arms[0][0] = 0;  // fric goes back
             arms[0][1] = 0;
-				  	if_pick = 0;
+            if_pick = 0;
         }
     }
     else
@@ -128,7 +127,7 @@ void arm_moto_control(void)
         arms[0][0] = 0;  // fric goes back
         arms[0][1] = 0;
     }
-/*
+    /*
     if (if_put == 1)
     {
         height = 0; // reset no. of blocks
@@ -252,18 +251,18 @@ void arm_moto_init(void)
 void storage_moto_control(void)
 {
     //relay trigger
-    if (which_storage == 0)
+  /*  if (which_storage == 0)
         storage[0][0] = 0;
     if (which_storage == 1)
         storage[0][0] = 0;
     if (which_storage == 2)
-        storage[0][0] = 0;
+        storage[0][0] = 0;*/
     storage[2][0] = pid_calc(&pid_storage[1][0], moto_storage[0].speed_rpm,
                              pid_calc(&pid_storage[0][0], moto_storage[0].total_angle / 36.0, storage[0][0]));
     //storage[2][1] = pid_calc(&pid_storage[1][1], moto_storage[1].speed_rpm,
     //                       pid_calc(&pid_storage[0][1], moto_storage[1].total_angle / 36.0, storage[0][1]));
 
-    //send_storage_moto_current(storage[2]);
+    send_storage_moto_current(storage[2]);
 }
 
 void storage_moto_init(void)
@@ -273,7 +272,7 @@ void storage_moto_init(void)
     //       [0] 1 - l/r (2006)
     //       [1] 2 - somewhat (2006)
 
-    pid_init(&pid_storage[0][0], 7000, 0, 0.5, 0.1, 0);
+    pid_init(&pid_storage[0][0], 7000, 0, 10, 0.1, 0);
     pid_init(&pid_storage[0][1], 7000, 0, 0.5, 0.1, 0);
 
     // PID init:
