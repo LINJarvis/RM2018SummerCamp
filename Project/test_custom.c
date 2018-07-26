@@ -10,7 +10,7 @@ int16_t test_moto_current[1];
 uint8_t test_servo = 0;
 uint8_t if_pick = 0;
 uint8_t if_put = 0;
-uint8_t which_storage = 0; // 1 is left, 1 is right
+uint8_t which_storage = 1; // 1 is left, 2 is right
 extern long pick_time_begin;
 int time_after_start;
 
@@ -33,7 +33,7 @@ int16_t storage[3][2];
 // CAN2: 0x200
 //   [X] [0] angle_set [1] speed_set [2] current
 //       [0] 1 - l/r (2006)
-//           med: 0(init), l: 515, r: N/A
+//           l: -100(init), med: 500, r: 1100
 //       [1] 2 - somewhat (2006)
 
 int16_t height;
@@ -49,7 +49,7 @@ void arm_moto_control(void)
 
     time_after_start = (HAL_GetTick() - pick_time_begin) / 100;
 
-	  // auto pick
+    // auto pick
     if (if_pick == 1)
     {
         pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
@@ -70,6 +70,10 @@ void arm_moto_control(void)
 
         if (time_after_start < 5)
         {
+            if (which_storage == 1)
+                storage[0][0] = -100;
+            if (which_storage == 2)
+                storage[0][0] = 1100;
             arms[0][3] = 0; // pitch goes downward
         }
 
@@ -113,13 +117,14 @@ void arm_moto_control(void)
         }
         if (time_after_start >= 65)
         {
-            arms[0][2] = 0;  // up&down resets
-            arms[0][0] = 0;  // fric goes back
+            storage[0][0] = 500;
+            arms[0][2] = 0; // up&down resets
+            arms[0][0] = 0; // fric goes back
             arms[0][1] = 0;
             if_pick = 0;
         }
     }
-		
+
     if (if_put == 1)
     {
         height = 0; // reset no. of blocks
@@ -138,7 +143,13 @@ void arm_moto_control(void)
         }
 
         if (time_after_start >= 10 && time_after_start < 20)
+        {
+            if (which_storage == 1)
+                storage[0][0] = -100;
+            if (which_storage == 2)
+                storage[0][0] = 1100;
             arms[0][2] = 400; // up&down goes upward to value set
+        }
 
         if (time_after_start >= 20 && time_after_start < 40)
         {
@@ -155,7 +166,7 @@ void arm_moto_control(void)
 
         if (time_after_start >= 45 && time_after_start < 57)
         {
-            arms[0][0] = -60; // fric 
+            arms[0][0] = -60; // fric
             arms[0][1] = 60;
         }
 
@@ -186,24 +197,25 @@ void arm_moto_control(void)
         if (time_after_start >= 85 && time_after_start < 90)
         {
             pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
+            storage[0][0] = 500;
             arms[0][3] = 70; // pitch resets
             arms[0][2] = 0;  // up&down resets
             arms[0][0] = 0;  // fric goes back
-            arms[0][1] = 0; 
-					  if_put = 0;
+            arms[0][1] = 0;
+            if_put = 0;
         }
     }
-	
-		if( if_pick == 0 && if_put == 0)
-		{
-			
+
+    if (if_pick == 0 && if_put == 0)
+    {
+
         pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
         arms[0][3] = 70; // pitch resets
         arms[0][2] = 0;  // up&down resets
         arms[0][0] = 0;  // fric goes back
         arms[0][1] = 0;
-        write_digital_io(1,0);
-		}
+        write_digital_io(1, 0);
+    }
 
     // calculate and send currents to motors
     arms[2][0] = pid_calc(&pid_arms[1][0], moto_arms[0].speed_rpm,
@@ -248,13 +260,6 @@ void arm_moto_init(void)
 
 void storage_moto_control(void)
 {
-    //relay trigger
-  /*  if (which_storage == 0)
-        storage[0][0] = 0;
-    if (which_storage == 1)
-        storage[0][0] = 0;
-    if (which_storage == 2)
-        storage[0][0] = 0;*/
     storage[2][0] = pid_calc(&pid_storage[1][0], moto_storage[0].speed_rpm,
                              pid_calc(&pid_storage[0][0], moto_storage[0].total_angle / 36.0, storage[0][0]));
     //storage[2][1] = pid_calc(&pid_storage[1][1], moto_storage[1].speed_rpm,
@@ -270,7 +275,7 @@ void storage_moto_init(void)
     //       [0] 1 - l/r (2006)
     //       [1] 2 - somewhat (2006)
 
-    pid_init(&pid_storage[0][0], 7000, 0, 10, 0.1, 0);
+    pid_init(&pid_storage[0][0], 10000, 0, 15, 0.1, 0.5);
     pid_init(&pid_storage[0][1], 7000, 0, 0.5, 0.1, 0);
 
     // PID init:
@@ -278,7 +283,7 @@ void storage_moto_init(void)
     //       [0] 1 - l/r (2006)
     //       [1] 2 - somewhat (2006)
 
-    pid_init(&pid_storage[1][0], 7000, 0, 1, 0.1, 0);
+    pid_init(&pid_storage[1][0], 10000, 0, 2, 0.1, 0.5);
     pid_init(&pid_storage[1][1], 7000, 0, 1, 0.1, 0);
 
     set_digital_io_dir(3, IO_INPUT);
@@ -287,4 +292,6 @@ void storage_moto_init(void)
     set_digital_io_dir(6, IO_INPUT);
     set_digital_io_dir(7, IO_INPUT);
     set_digital_io_dir(8, IO_INPUT);
+
+    storage[0][0] = 500;
 }

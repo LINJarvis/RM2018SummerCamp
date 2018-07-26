@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\rm_infantry\rm_infantry.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\rm_infantry\rm_infantry.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Thu Jul 26 13:17:40 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Thu Jul 26 14:07:51 2018
 <BR><P>
 <H3>Maximum Stack Usage =        264 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -848,8 +848,8 @@ Global Symbols
 <P><STRONG><a name="[97]"></a>HAL_GPIO_Init</STRONG> (Thumb, 486 bytes, Stack size 24 bytes, stm32f4xx_hal_gpio.o(i.HAL_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_MspInit
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
@@ -875,6 +875,9 @@ Global Symbols
 <P><STRONG><a name="[9b]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_hal.o(i.HAL_GetTick))
 <BR><BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;execute_task
 <LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;err_detector_hook
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Transmit
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Init
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Init
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_control
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TransmitReceive
@@ -883,9 +886,6 @@ Global Symbols
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_EnterInitMode
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_WaitForSynchro
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTCEx_SetWakeUpTimer
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Transmit
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Init
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WaitFlagStateUntilTimeout
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
@@ -900,9 +900,9 @@ Global Symbols
 <P><STRONG><a name="[a5]"></a>HAL_Init</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, stm32f4xx_hal.o(i.HAL_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = HAL_Init &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
+<BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriorityGrouping
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -910,12 +910,12 @@ Global Symbols
 <P><STRONG><a name="[a7]"></a>HAL_InitTick</STRONG> (Thumb, 122 bytes, Stack size 48 bytes, stm32f4xx_hal_timebase_tim.o(i.HAL_InitTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetClockConfig
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
+<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK1Freq
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start_IT
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
+<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetClockConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
@@ -926,9 +926,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[9d]"></a>HAL_NVIC_EnableIRQ</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ))
-<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
 </UL>
 
@@ -938,9 +938,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetPriority
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_GetPriorityGrouping
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
@@ -990,8 +990,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetHCLKFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
+<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
+<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
 <P><STRONG><a name="[b4]"></a>HAL_RCC_GetPCLK2Freq</STRONG> (Thumb, 36 bytes, Stack size 4 bytes, stm32f4xx_hal_rcc.o(i.HAL_RCC_GetPCLK2Freq))
@@ -1193,12 +1193,12 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[d0]"></a>HAL_TIM_PWM_ConfigChannel</STRONG> (Thumb, 264 bytes, Stack size 16 bytes, stm32f4xx_hal_tim.o(i.HAL_TIM_PWM_ConfigChannel))
-<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = HAL_TIM_PWM_ConfigChannel &rArr; TIM_OC4_SetConfig
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = HAL_TIM_PWM_ConfigChannel &rArr; TIM_OC2_SetConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4_SetConfig
+<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2_SetConfig
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4_SetConfig
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC3_SetConfig
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1_SetConfig
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2_SetConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM8_Init
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM5_Init
@@ -1253,19 +1253,19 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[de]"></a>HAL_UART_ErrorCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_ErrorCallback))
-<BR><BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMAAbortOnError
+<BR><BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMAAbortOnError
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
 </UL>
 
 <P><STRONG><a name="[da]"></a>HAL_UART_IRQHandler</STRONG> (Thumb, 326 bytes, Stack size 32 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = HAL_UART_IRQHandler &rArr; UART_Receive_IT
 </UL>
-<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort_IT
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
+<BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Transmit_IT
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Receive_IT
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndTransmit_IT
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndRxTransfer
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort_IT
 </UL>
 <BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART6_IRQHandler
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_IRQHandler
@@ -1277,8 +1277,8 @@ Global Symbols
 <P><STRONG><a name="[e1]"></a>HAL_UART_Init</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_NVIC_SetPriority &rArr; NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
+<BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART6_UART_Init
@@ -1291,11 +1291,11 @@ Global Symbols
 <P><STRONG><a name="[e2]"></a>HAL_UART_MspInit</STRONG> (Thumb, 770 bytes, Stack size 32 bytes, usart.o(i.HAL_UART_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = HAL_UART_MspInit &rArr; HAL_NVIC_SetPriority &rArr; NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Init
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Error_Handler
+<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Error_Handler
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 </UL>
@@ -1362,8 +1362,8 @@ Global Symbols
 <P><STRONG><a name="[ed]"></a>MX_GPIO_Init</STRONG> (Thumb, 648 bytes, Stack size 32 bytes, gpio.o(i.MX_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1371,13 +1371,13 @@ Global Symbols
 <P><STRONG><a name="[ef]"></a>MX_RTC_Init</STRONG> (Thumb, 184 bytes, Stack size 32 bytes, rtc.o(i.MX_RTC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = MX_RTC_Init &rArr; HAL_RTC_SetTime &rArr; RTC_EnterInitMode
 </UL>
-<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_SetTime
+<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Error_Handler
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_SetTime
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_SetDate
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_Init
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTCEx_SetWakeUpTimer
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTCEx_BKUPWrite
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTCEx_BKUPRead
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1635,14 +1635,14 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f427xx.o(RESET)
 </UL>
 <P><STRONG><a name="[e4]"></a>_Error_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, main.o(i._Error_Handler))
-<BR><BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART6_UART_Init
+<BR><BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN2_Init
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN1_Init
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART6_UART_Init
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_UART8_Init
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_UART7_Init
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN2_Init
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN1_Init
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI5_Init
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_RTC_Init
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC1_Init
@@ -1830,7 +1830,7 @@ Global Symbols
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 </UL>
 
-<P><STRONG><a name="[122]"></a>arm_moto_control</STRONG> (Thumb, 1528 bytes, Stack size 32 bytes, test_custom.o(i.arm_moto_control))
+<P><STRONG><a name="[122]"></a>arm_moto_control</STRONG> (Thumb, 1604 bytes, Stack size 32 bytes, test_custom.o(i.arm_moto_control))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = arm_moto_control &rArr; send_arm_moto_current &rArr; write_can &rArr; HAL_CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
@@ -1992,7 +1992,7 @@ Global Symbols
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can1_recv_callback
 </UL>
 
-<P><STRONG><a name="[6d]"></a>execute_task</STRONG> (Thumb, 160 bytes, Stack size 0 bytes, execute_task.o(i.execute_task))
+<P><STRONG><a name="[6d]"></a>execute_task</STRONG> (Thumb, 126 bytes, Stack size 0 bytes, execute_task.o(i.execute_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = execute_task &rArr; storage_moto_control &rArr; send_storage_moto_current &rArr; write_can &rArr; HAL_CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
@@ -2074,11 +2074,11 @@ Global Symbols
 <P><STRONG><a name="[14f]"></a>ist8310_init</STRONG> (Thumb, 256 bytes, Stack size 8 bytes, bsp_imu.o(i.ist8310_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = ist8310_init &rArr; mpu_mst_i2c_auto_read_config &rArr; mpu_write_reg &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
+<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
 <LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_mst_i2c_auto_read_config
 <LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist_reg_write_by_mpu
 <LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist_reg_read_by_mpu
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_device_init
 </UL>
@@ -2088,6 +2088,11 @@ Global Symbols
 <LI>Call Chain = main &rArr; MX_FREERTOS_Init &rArr; sys_start_task &rArr; osThreadCreate &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_setup
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN2_Init
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN1_Init
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Start
 <LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;digital_tube_init
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_device_init
@@ -2097,11 +2102,6 @@ Global Symbols
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_UART8_Init
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_UART7_Init
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN2_Init
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN1_Init
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Start
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI5_Init
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_RTC_Init
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
@@ -2121,11 +2121,11 @@ Global Symbols
 <P><STRONG><a name="[155]"></a>mpu_device_init</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, bsp_imu.o(i.mpu_device_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = mpu_device_init &rArr; ist8310_init &rArr; mpu_mst_i2c_auto_read_config &rArr; mpu_write_reg &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist8310_init
+<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist8310_init
 <LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_reg
 <LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_offset_cal
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -2315,7 +2315,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;execute_task
 </UL>
 
-<P><STRONG><a name="[141]"></a>storage_moto_init</STRONG> (Thumb, 154 bytes, Stack size 8 bytes, test_custom.o(i.storage_moto_init))
+<P><STRONG><a name="[141]"></a>storage_moto_init</STRONG> (Thumb, 162 bytes, Stack size 8 bytes, test_custom.o(i.storage_moto_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = storage_moto_init &rArr; set_digital_io_dir
 </UL>
 <BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_init
@@ -2916,9 +2916,9 @@ Local Symbols
 <P><STRONG><a name="[152]"></a>ist_reg_read_by_mpu</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, bsp_imu.o(i.ist_reg_read_by_mpu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = ist_reg_read_by_mpu &rArr; mpu_write_reg &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
+<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_reg
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist8310_init
 </UL>
@@ -2926,8 +2926,8 @@ Local Symbols
 <P><STRONG><a name="[151]"></a>ist_reg_write_by_mpu</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, bsp_imu.o(i.ist_reg_write_by_mpu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = ist_reg_write_by_mpu &rArr; mpu_write_reg &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist8310_init
 </UL>
@@ -2943,8 +2943,8 @@ Local Symbols
 <P><STRONG><a name="[153]"></a>mpu_mst_i2c_auto_read_config</STRONG> (Thumb, 140 bytes, Stack size 16 bytes, bsp_imu.o(i.mpu_mst_i2c_auto_read_config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = mpu_mst_i2c_auto_read_config &rArr; mpu_write_reg &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist8310_init
 </UL>
@@ -2952,8 +2952,8 @@ Local Symbols
 <P><STRONG><a name="[157]"></a>mpu_offset_cal</STRONG> (Thumb, 296 bytes, Stack size 8 bytes, bsp_imu.o(i.mpu_offset_cal))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = mpu_offset_cal &rArr; mpu_read_regs &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_regs
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_regs
 </UL>
 <BR>[Called By]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_device_init
 </UL>

@@ -26,33 +26,20 @@ void execute_task(const void *argu)
         {
             if_pick = 1;
             pick_time_begin = HAL_GetTick();
-				}
-        if (rc.kb.bit.X  && rc.kb.bit.SHIFT == 1)
+        }
+        if (rc.kb.bit.X && rc.kb.bit.SHIFT == 1)
         {
             if_put = 1;
             pick_time_begin = HAL_GetTick();
         }
-        if (rc.kb.bit.V)
+
+        if (rc.kb.bit.Q)
         {
-            if (rc.kb.bit.SHIFT == 0)
-            {
-                which_storage = 0;
-            }
-            else
-            {
-                which_storage = 1;
-            }
+            which_storage = 1;
         }
-        if (rc.kb.bit.B)
+        if (rc.kb.bit.E)
         {
-            if (rc.kb.bit.SHIFT == 0)
-            {
-                which_storage = 0;
-            }
-            else
-            {
-                which_storage = 2;
-            }
+            which_storage = 2;
         }
 
         arm_moto_control();
