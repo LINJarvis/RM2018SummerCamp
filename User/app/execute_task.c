@@ -7,7 +7,7 @@
 #include "sys.h"
 
 //uint8_t test_key_value;
-extern uint8_t test_servo;
+extern uint8_t relay;
 extern uint8_t if_pick;
 extern uint8_t if_put;
 extern uint8_t which_storage; // 0 is left, 1 is right
@@ -22,12 +22,12 @@ void execute_task(const void *argu)
 
     while (1)
     {
-        if (rc.kb.bit.X && rc.kb.bit.SHIFT == 0)
+        if ((rc.kb.bit.X && rc.kb.bit.SHIFT == 0)|| rc.sw1 == 1)
         {
             if_pick = 1;
             pick_time_begin = HAL_GetTick();
         }
-        if (rc.kb.bit.X && rc.kb.bit.SHIFT == 1)
+        if ((rc.kb.bit.X && rc.kb.bit.SHIFT == 1) || rc.sw1 == 2)
         {
             if_put = 1;
             pick_time_begin = HAL_GetTick();
@@ -44,6 +44,7 @@ void execute_task(const void *argu)
 
         arm_moto_control();
         storage_moto_control();
+        io_pwm_control();
 
         osDelay(7);
     }

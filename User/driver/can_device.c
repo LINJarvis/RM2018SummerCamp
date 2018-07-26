@@ -60,14 +60,14 @@ void can1_recv_callback(uint32_t recv_id, uint8_t data[])
     {
       moto_chassis[0].msg_cnt++ <= 50 ? get_moto_offset(&moto_chassis[0], data) : \
       encoder_data_handle(&moto_chassis[0], data);
-      err_detector_hook(CHASSIS_M1_OFFLINE);
+     // err_detector_hook(CHASSIS_M1_OFFLINE);
     }
     break;
     case CAN_3508_M2_ID:
     {
       moto_chassis[1].msg_cnt++ <= 50 ? get_moto_offset(&moto_chassis[1], data) : \
       encoder_data_handle(&moto_chassis[1], data);
-      err_detector_hook(CHASSIS_M2_OFFLINE);
+     // err_detector_hook(CHASSIS_M2_OFFLINE);
     }
     break;
 
@@ -75,14 +75,14 @@ void can1_recv_callback(uint32_t recv_id, uint8_t data[])
     {
       moto_chassis[2].msg_cnt++ <= 50 ? get_moto_offset(&moto_chassis[2], data) : \
       encoder_data_handle(&moto_chassis[2], data);
-      err_detector_hook(CHASSIS_M3_OFFLINE);
+     // err_detector_hook(CHASSIS_M3_OFFLINE);
     }
     break;
     case CAN_3508_M4_ID:
     {
       moto_chassis[3].msg_cnt++ <= 50 ? get_moto_offset(&moto_chassis[3], data) : \
       encoder_data_handle(&moto_chassis[3], data);
-      err_detector_hook(CHASSIS_M4_OFFLINE);
+     // err_detector_hook(CHASSIS_M4_OFFLINE);
     }
     break;
     case CAN_ARM1_ID:

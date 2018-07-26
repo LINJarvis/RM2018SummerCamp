@@ -7,7 +7,7 @@
 int16_t test_moto_speed = 0;
 int16_t test_moto_current[1];
 
-uint8_t test_servo = 0;
+uint8_t relay = 0;
 uint8_t if_pick = 0;
 uint8_t if_put = 0;
 uint8_t which_storage = 1; // 1 is left, 2 is right
@@ -37,6 +37,16 @@ int16_t storage[3][2];
 //       [1] 2 - somewhat (2006)
 
 int16_t height;
+
+void io_pwm_control(void)
+{
+	
+    if (relay == 1)
+        write_digital_io(8, 1);
+    else
+
+        write_digital_io(8, 0);
+}
 
 void arm_moto_control(void)
 {
@@ -71,9 +81,9 @@ void arm_moto_control(void)
         if (time_after_start < 5)
         {
             if (which_storage == 1)
-                storage[0][0] = -100;
+                storage[0][0] = -50;
             if (which_storage == 2)
-                storage[0][0] = 1100;
+                storage[0][0] = 1200;
             arms[0][3] = 0; // pitch goes downward
         }
 
@@ -145,9 +155,9 @@ void arm_moto_control(void)
         if (time_after_start >= 10 && time_after_start < 20)
         {
             if (which_storage == 1)
-                storage[0][0] = -100;
+                storage[0][0] = -50;
             if (which_storage == 2)
-                storage[0][0] = 1100;
+                storage[0][0] = 1200;
             arms[0][2] = 400; // up&down goes upward to value set
         }
 
@@ -214,7 +224,7 @@ void arm_moto_control(void)
         arms[0][2] = 0;  // up&down resets
         arms[0][0] = 0;  // fric goes back
         arms[0][1] = 0;
-        write_digital_io(1, 0);
+        //write_digital_io(8, 0);
     }
 
     // calculate and send currents to motors
@@ -230,7 +240,6 @@ void arm_moto_control(void)
     send_arm_moto_current(arms[2]);
 }
 
-//电机初始化参数设定
 void arm_moto_init(void)
 {
     // PID init:
@@ -254,8 +263,6 @@ void arm_moto_init(void)
     pid_init(&pid_arms[1][1], 7000, 0, 10, 0, 0);
     pid_init(&pid_arms[1][2], 7000, 0, 10, 0, 0);
     pid_init(&pid_arms[1][3], 10000, 0, 10, 0, 0);
-
-    set_digital_io_dir(1, IO_OUTPUT);
 }
 
 void storage_moto_control(void)
@@ -286,12 +293,15 @@ void storage_moto_init(void)
     pid_init(&pid_storage[1][0], 10000, 0, 2, 0.1, 0.5);
     pid_init(&pid_storage[1][1], 7000, 0, 1, 0.1, 0);
 
+	
+    set_digital_io_dir(1, IO_INPUT);
+    set_digital_io_dir(2, IO_INPUT);
     set_digital_io_dir(3, IO_INPUT);
     set_digital_io_dir(4, IO_INPUT);
     set_digital_io_dir(5, IO_INPUT);
     set_digital_io_dir(6, IO_INPUT);
-    set_digital_io_dir(7, IO_INPUT);
-    set_digital_io_dir(8, IO_INPUT);
+		
+    set_digital_io_dir(8, IO_OUTPUT);
 
     storage[0][0] = 500;
 }
