@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\rm_infantry\rm_infantry.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\rm_infantry\rm_infantry.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Wed Jul 25 23:31:23 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Thu Jul 26 13:17:40 2018
 <BR><P>
 <H3>Maximum Stack Usage =        264 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -325,7 +325,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[17b]"></a>__aeabi_memclr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;remote_data_handle
+<BR><BR>[Called By]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;remote_data_handle
 </UL>
 
 <P><STRONG><a name="[86]"></a>__rt_memclr</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, rt_memclr.o(.text), UNUSED)
@@ -735,10 +735,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_Init
 </UL>
 
-<P><STRONG><a name="[12e]"></a>HAL_CAN_ConfigFilter</STRONG> (Thumb, 260 bytes, Stack size 16 bytes, stm32f4xx_hal_can.o(i.HAL_CAN_ConfigFilter))
+<P><STRONG><a name="[12f]"></a>HAL_CAN_ConfigFilter</STRONG> (Thumb, 260 bytes, Stack size 16 bytes, stm32f4xx_hal_can.o(i.HAL_CAN_ConfigFilter))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_CAN_ConfigFilter
 </UL>
-<BR>[Called By]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_device_init
+<BR>[Called By]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_device_init
 </UL>
 
 <P><STRONG><a name="[98]"></a>HAL_CAN_ErrorCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_hal_can.o(i.HAL_CAN_ErrorCallback))
@@ -778,8 +778,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Init
 </UL>
 
-<P><STRONG><a name="[130]"></a>HAL_CAN_Receive_IT</STRONG> (Thumb, 268 bytes, Stack size 0 bytes, stm32f4xx_hal_can.o(i.HAL_CAN_Receive_IT))
-<BR><BR>[Called By]<UL><LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_receive_start
+<P><STRONG><a name="[131]"></a>HAL_CAN_Receive_IT</STRONG> (Thumb, 268 bytes, Stack size 0 bytes, stm32f4xx_hal_can.o(i.HAL_CAN_Receive_IT))
+<BR><BR>[Called By]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_receive_start
 </UL>
 
 <P><STRONG><a name="[90]"></a>HAL_CAN_RxCpltCallback</STRONG> (Thumb, 92 bytes, Stack size 8 bytes, bsp_can.o(i.HAL_CAN_RxCpltCallback))
@@ -848,8 +848,8 @@ Global Symbols
 <P><STRONG><a name="[97]"></a>HAL_GPIO_Init</STRONG> (Thumb, 486 bytes, Stack size 24 bytes, stm32f4xx_hal_gpio.o(i.HAL_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_MspInit
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_MspInit
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
@@ -862,9 +862,9 @@ Global Symbols
 
 <P><STRONG><a name="[ee]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_hal_gpio.o(i.HAL_GPIO_WritePin))
 <BR><BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_led_io
-<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_digital_io
-<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refresh_digital_tube
-<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;digital_tube_init
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_digital_io
+<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refresh_digital_tube
+<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;digital_tube_init
 <LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
 <LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_regs
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_reg
@@ -874,10 +874,7 @@ Global Symbols
 
 <P><STRONG><a name="[9b]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_hal.o(i.HAL_GetTick))
 <BR><BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;execute_task
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;err_detector_hook
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Transmit
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Init
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;err_detector_hook
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Init
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_control
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_TransmitReceive
@@ -886,6 +883,9 @@ Global Symbols
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_EnterInitMode
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_WaitForSynchro
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTCEx_SetWakeUpTimer
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Transmit
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Init
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_WaitFlagStateUntilTimeout
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
@@ -900,9 +900,9 @@ Global Symbols
 <P><STRONG><a name="[a5]"></a>HAL_Init</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, stm32f4xx_hal.o(i.HAL_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = HAL_Init &rArr; HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
+<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriorityGrouping
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -910,12 +910,12 @@ Global Symbols
 <P><STRONG><a name="[a7]"></a>HAL_InitTick</STRONG> (Thumb, 122 bytes, Stack size 48 bytes, stm32f4xx_hal_timebase_tim.o(i.HAL_InitTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = HAL_InitTick &rArr; HAL_NVIC_SetPriority &rArr; NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
+<BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetClockConfig
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetPCLK1Freq
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Start_IT
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetClockConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
@@ -926,9 +926,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[9d]"></a>HAL_NVIC_EnableIRQ</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f4xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ))
-<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
 </UL>
 
@@ -938,9 +938,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetPriority
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_GetPriorityGrouping
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_MspInit
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_DMA_Init
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
@@ -990,8 +990,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetHCLKFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
 </UL>
 
 <P><STRONG><a name="[b4]"></a>HAL_RCC_GetPCLK2Freq</STRONG> (Thumb, 36 bytes, Stack size 4 bytes, stm32f4xx_hal_rcc.o(i.HAL_RCC_GetPCLK2Freq))
@@ -1193,12 +1193,12 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[d0]"></a>HAL_TIM_PWM_ConfigChannel</STRONG> (Thumb, 264 bytes, Stack size 16 bytes, stm32f4xx_hal_tim.o(i.HAL_TIM_PWM_ConfigChannel))
-<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = HAL_TIM_PWM_ConfigChannel &rArr; TIM_OC2_SetConfig
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = HAL_TIM_PWM_ConfigChannel &rArr; TIM_OC4_SetConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2_SetConfig
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4_SetConfig
+<BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4_SetConfig
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC3_SetConfig
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1_SetConfig
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2_SetConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM8_Init
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM5_Init
@@ -1253,19 +1253,19 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[de]"></a>HAL_UART_ErrorCallback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_ErrorCallback))
-<BR><BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMAAbortOnError
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
+<BR><BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_DMAAbortOnError
 </UL>
 
 <P><STRONG><a name="[da]"></a>HAL_UART_IRQHandler</STRONG> (Thumb, 326 bytes, Stack size 32 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = HAL_UART_IRQHandler &rArr; UART_Receive_IT
 </UL>
-<BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
+<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort_IT
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_ErrorCallback
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Transmit_IT
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Receive_IT
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndTransmit_IT
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_EndRxTransfer
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Abort_IT
 </UL>
 <BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART6_IRQHandler
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_IRQHandler
@@ -1277,8 +1277,8 @@ Global Symbols
 <P><STRONG><a name="[e1]"></a>HAL_UART_Init</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, stm32f4xx_hal_uart.o(i.HAL_UART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_NVIC_SetPriority &rArr; NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
-<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART6_UART_Init
@@ -1291,11 +1291,11 @@ Global Symbols
 <P><STRONG><a name="[e2]"></a>HAL_UART_MspInit</STRONG> (Thumb, 770 bytes, Stack size 32 bytes, usart.o(i.HAL_UART_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = HAL_UART_MspInit &rArr; HAL_NVIC_SetPriority &rArr; NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Error_Handler
+<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Init
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Error_Handler
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_DMA_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 </UL>
@@ -1362,8 +1362,8 @@ Global Symbols
 <P><STRONG><a name="[ed]"></a>MX_GPIO_Init</STRONG> (Thumb, 648 bytes, Stack size 32 bytes, gpio.o(i.MX_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+<BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1371,13 +1371,13 @@ Global Symbols
 <P><STRONG><a name="[ef]"></a>MX_RTC_Init</STRONG> (Thumb, 184 bytes, Stack size 32 bytes, rtc.o(i.MX_RTC_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = MX_RTC_Init &rArr; HAL_RTC_SetTime &rArr; RTC_EnterInitMode
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Error_Handler
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_SetTime
+<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_SetTime
 <LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_SetDate
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_Init
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTCEx_SetWakeUpTimer
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTCEx_BKUPWrite
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTCEx_BKUPRead
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_Error_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1635,14 +1635,14 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f427xx.o(RESET)
 </UL>
 <P><STRONG><a name="[e4]"></a>_Error_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, main.o(i._Error_Handler))
-<BR><BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN2_Init
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN1_Init
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART6_UART_Init
+<BR><BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART6_UART_Init
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART3_UART_Init
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_UART8_Init
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_UART7_Init
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN2_Init
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN1_Init
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI5_Init
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_RTC_Init
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC1_Init
@@ -1727,7 +1727,7 @@ Global Symbols
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
+<BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
 </UL>
 
 <P><STRONG><a name="[11d]"></a>__hardfp_sqrt</STRONG> (Thumb, 122 bytes, Stack size 32 bytes, sqrt.o(i.__hardfp_sqrt))
@@ -1830,26 +1830,27 @@ Global Symbols
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 </UL>
 
-<P><STRONG><a name="[122]"></a>arm_moto_control</STRONG> (Thumb, 962 bytes, Stack size 32 bytes, test_custom.o(i.arm_moto_control))
+<P><STRONG><a name="[122]"></a>arm_moto_control</STRONG> (Thumb, 1528 bytes, Stack size 32 bytes, test_custom.o(i.arm_moto_control))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = arm_moto_control &rArr; send_arm_moto_current &rArr; write_can &rArr; HAL_CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_init
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_calc
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_arm_moto_current
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_calc
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_arm_moto_current
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_digital_io
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_digital_io
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;execute_task
 </UL>
 
-<P><STRONG><a name="[128]"></a>arm_moto_init</STRONG> (Thumb, 216 bytes, Stack size 8 bytes, test_custom.o(i.arm_moto_init))
+<P><STRONG><a name="[129]"></a>arm_moto_init</STRONG> (Thumb, 216 bytes, Stack size 8 bytes, test_custom.o(i.arm_moto_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = arm_moto_init &rArr; set_digital_io_dir
 </UL>
 <BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_init
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_digital_io_dir
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_digital_io_dir
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;execute_task
 </UL>
@@ -1865,32 +1866,32 @@ Global Symbols
 <P><STRONG><a name="[68]"></a>can1_recv_callback</STRONG> (Thumb, 394 bytes, Stack size 16 bytes, can_device.o(i.can1_recv_callback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = can1_recv_callback &rArr; encoder_data_handle
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;err_detector_hook
-<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_moto_offset
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encoder_data_handle
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;err_detector_hook
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_moto_offset
+<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encoder_data_handle
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(i.init_setup)
 </UL>
 <P><STRONG><a name="[69]"></a>can2_recv_callback</STRONG> (Thumb, 100 bytes, Stack size 16 bytes, can_device.o(i.can2_recv_callback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = can2_recv_callback &rArr; encoder_data_handle
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_moto_offset
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encoder_data_handle
+<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_moto_offset
+<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;encoder_data_handle
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(i.init_setup)
 </UL>
-<P><STRONG><a name="[12d]"></a>can_device_init</STRONG> (Thumb, 78 bytes, Stack size 48 bytes, bsp_can.o(i.can_device_init))
+<P><STRONG><a name="[12e]"></a>can_device_init</STRONG> (Thumb, 78 bytes, Stack size 48 bytes, bsp_can.o(i.can_device_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = can_device_init &rArr; HAL_CAN_ConfigFilter
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_ConfigFilter
+<BR>[Calls]<UL><LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_ConfigFilter
 </UL>
 <BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_setup
 </UL>
 
-<P><STRONG><a name="[12f]"></a>can_receive_start</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, bsp_can.o(i.can_receive_start))
+<P><STRONG><a name="[130]"></a>can_receive_start</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, bsp_can.o(i.can_receive_start))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = can_receive_start
 </UL>
-<BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Receive_IT
+<BR>[Calls]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Receive_IT
 </UL>
 <BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_setup
 </UL>
@@ -1899,35 +1900,35 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_setup
 </UL>
 
-<P><STRONG><a name="[131]"></a>chassis_close_loop_calculate</STRONG> (Thumb, 92 bytes, Stack size 8 bytes, chassis_custom.o(i.chassis_close_loop_calculate))
+<P><STRONG><a name="[132]"></a>chassis_close_loop_calculate</STRONG> (Thumb, 92 bytes, Stack size 8 bytes, chassis_custom.o(i.chassis_close_loop_calculate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = chassis_close_loop_calculate &rArr; pid_calc
 </UL>
-<BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_calc
+<BR>[Calls]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_calc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_custom_control
+<BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_custom_control
 </UL>
 
-<P><STRONG><a name="[138]"></a>chassis_control_information_get</STRONG> (Thumb, 184 bytes, Stack size 0 bytes, chassis_custom.o(i.chassis_control_information_get))
+<P><STRONG><a name="[139]"></a>chassis_control_information_get</STRONG> (Thumb, 184 bytes, Stack size 0 bytes, chassis_custom.o(i.chassis_control_information_get))
 <BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_task
 </UL>
 
-<P><STRONG><a name="[132]"></a>chassis_custom_control</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, chassis_custom.o(i.chassis_custom_control))
+<P><STRONG><a name="[133]"></a>chassis_custom_control</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, chassis_custom.o(i.chassis_custom_control))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = chassis_custom_control &rArr; send_chassis_moto_current &rArr; write_can &rArr; HAL_CAN_Transmit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_chassis_moto_current
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_moto_speed_calc
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_close_loop_calculate
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_chassis_moto_current
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_moto_speed_calc
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_close_loop_calculate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_task
 </UL>
 
-<P><STRONG><a name="[133]"></a>chassis_moto_speed_calc</STRONG> (Thumb, 460 bytes, Stack size 12 bytes, chassis_custom.o(i.chassis_moto_speed_calc))
+<P><STRONG><a name="[134]"></a>chassis_moto_speed_calc</STRONG> (Thumb, 460 bytes, Stack size 12 bytes, chassis_custom.o(i.chassis_moto_speed_calc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = chassis_moto_speed_calc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_custom_control
+<BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_custom_control
 </UL>
 
-<P><STRONG><a name="[135]"></a>chassis_pid_param_init</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, chassis_task.o(i.chassis_pid_param_init))
+<P><STRONG><a name="[136]"></a>chassis_pid_param_init</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, chassis_task.o(i.chassis_pid_param_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = chassis_pid_param_init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_init
@@ -1938,28 +1939,28 @@ Global Symbols
 <P><STRONG><a name="[6c]"></a>chassis_task</STRONG> (Thumb, 186 bytes, Stack size 8 bytes, chassis_task.o(i.chassis_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = chassis_task &rArr; chassis_twist_handle &rArr; __hardfp_sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_d2iz
 </UL>
-<BR>[Calls]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_custom_control
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_control_information_get
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_chassis_mode
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_pid_param_init
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelSysTick
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelayUntil
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_calc
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_chassis_moto_zero_current
+<BR>[Calls]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_custom_control
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_control_information_get
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_chassis_mode
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_pid_param_init
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelSysTick
+<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelayUntil
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_calc
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_chassis_moto_zero_current
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(.constdata)
 </UL>
-<P><STRONG><a name="[139]"></a>chassis_twist_handle</STRONG> (Thumb, 158 bytes, Stack size 64 bytes, chassis_custom.o(i.chassis_twist_handle))
+<P><STRONG><a name="[13a]"></a>chassis_twist_handle</STRONG> (Thumb, 158 bytes, Stack size 64 bytes, chassis_custom.o(i.chassis_twist_handle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248<LI>Call Chain = chassis_twist_handle &rArr; __hardfp_sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_d2iz
 </UL>
-<BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_calc
+<BR>[Calls]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_calc
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sin
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_task
 </UL>
@@ -1967,22 +1968,22 @@ Global Symbols
 <P><STRONG><a name="[67]"></a>dbus_uart_callback</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, uart_device.o(i.dbus_uart_callback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = dbus_uart_callback &rArr; remote_data_handle
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;remote_data_handle
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;err_detector_hook
+<BR>[Calls]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;remote_data_handle
+<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;err_detector_hook
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(i.init_setup)
 </UL>
-<P><STRONG><a name="[13d]"></a>digital_tube_init</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, bsp_io.o(i.digital_tube_init))
+<P><STRONG><a name="[13e]"></a>digital_tube_init</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, bsp_io.o(i.digital_tube_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = digital_tube_init &rArr; refresh_digital_tube &rArr; display_num &rArr; write_digital_io
 </UL>
-<BR>[Calls]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_digital_io_dir
-<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refresh_digital_tube
+<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_digital_io_dir
+<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refresh_digital_tube
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[12c]"></a>err_detector_hook</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, detect_task.o(i.err_detector_hook))
+<P><STRONG><a name="[12d]"></a>err_detector_hook</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, detect_task.o(i.err_detector_hook))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = err_detector_hook
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
@@ -1991,14 +1992,14 @@ Global Symbols
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can1_recv_callback
 </UL>
 
-<P><STRONG><a name="[6d]"></a>execute_task</STRONG> (Thumb, 164 bytes, Stack size 0 bytes, execute_task.o(i.execute_task))
+<P><STRONG><a name="[6d]"></a>execute_task</STRONG> (Thumb, 160 bytes, Stack size 0 bytes, execute_task.o(i.execute_task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = execute_task &rArr; storage_moto_control &rArr; send_storage_moto_current &rArr; write_can &rArr; HAL_CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelay
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;storage_moto_init
 <LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;storage_moto_control
-<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_init
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_init
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_control
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(.constdata)
@@ -2012,7 +2013,7 @@ Global Symbols
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 </UL>
 
-<P><STRONG><a name="[137]"></a>get_chassis_mode</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, chassis_task.o(i.get_chassis_mode))
+<P><STRONG><a name="[138]"></a>get_chassis_mode</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, chassis_task.o(i.get_chassis_mode))
 <BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_task
 </UL>
 
@@ -2023,7 +2024,7 @@ Global Symbols
 <LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invSqrt
 <LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrt
 <LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_task
 </UL>
@@ -2035,7 +2036,7 @@ Global Symbols
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asin
 <LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_task
 </UL>
@@ -2059,8 +2060,8 @@ Global Symbols
 <LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_receive_start
 <LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 <LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_recv_callback_register
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_receive_start
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_device_init
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_receive_start
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can_device_init
 <LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_cali_data
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -2073,11 +2074,11 @@ Global Symbols
 <P><STRONG><a name="[14f]"></a>ist8310_init</STRONG> (Thumb, 256 bytes, Stack size 8 bytes, bsp_imu.o(i.ist8310_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = ist8310_init &rArr; mpu_mst_i2c_auto_read_config &rArr; mpu_write_reg &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
+<BR>[Calls]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
 <LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_mst_i2c_auto_read_config
 <LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist_reg_write_by_mpu
 <LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist_reg_read_by_mpu
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_device_init
 </UL>
@@ -2087,12 +2088,7 @@ Global Symbols
 <LI>Call Chain = main &rArr; MX_FREERTOS_Init &rArr; sys_start_task &rArr; osThreadCreate &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;init_setup
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN2_Init
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN1_Init
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Start
-<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;digital_tube_init
+<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;digital_tube_init
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_device_init
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FREERTOS_Init
@@ -2101,6 +2097,11 @@ Global Symbols
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USART1_UART_Init
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_UART8_Init
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_UART7_Init
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN2_Init
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_CAN1_Init
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelStart
+<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Start
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI5_Init
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_RTC_Init
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
@@ -2120,11 +2121,11 @@ Global Symbols
 <P><STRONG><a name="[155]"></a>mpu_device_init</STRONG> (Thumb, 94 bytes, Stack size 24 bytes, bsp_imu.o(i.mpu_device_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = mpu_device_init &rArr; ist8310_init &rArr; mpu_mst_i2c_auto_read_config &rArr; mpu_write_reg &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist8310_init
+<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist8310_init
 <LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_reg
 <LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_offset_cal
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -2139,7 +2140,7 @@ Global Symbols
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartDefaultTask
 </UL>
 
-<P><STRONG><a name="[13b]"></a>osDelayUntil</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, cmsis_os.o(i.osDelayUntil))
+<P><STRONG><a name="[13c]"></a>osDelayUntil</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, cmsis_os.o(i.osDelayUntil))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = osDelayUntil &rArr; vTaskDelayUntil &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelayUntil
@@ -2156,7 +2157,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[136]"></a>osKernelSysTick</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, cmsis_os.o(i.osKernelSysTick))
+<P><STRONG><a name="[137]"></a>osKernelSysTick</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, cmsis_os.o(i.osKernelSysTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = osKernelSysTick &rArr; xTaskGetTickCountFromISR &rArr; vPortValidateInterruptPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCountFromISR
@@ -2186,22 +2187,22 @@ Global Symbols
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_FREERTOS_Init
 </UL>
 
-<P><STRONG><a name="[126]"></a>pid_calc</STRONG> (Thumb, 174 bytes, Stack size 16 bytes, pid.o(i.pid_calc))
+<P><STRONG><a name="[127]"></a>pid_calc</STRONG> (Thumb, 174 bytes, Stack size 16 bytes, pid.o(i.pid_calc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = pid_calc
 </UL>
 <BR>[Calls]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;abs_limit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
+<BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_task
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_close_loop_calculate
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_close_loop_calculate
 <LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;storage_moto_control
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_control
 </UL>
 
 <P><STRONG><a name="[123]"></a>pid_init</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, pid.o(i.pid_init))
-<BR><BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_pid_param_init
+<BR><BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_pid_param_init
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;storage_moto_init
-<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_init
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_init
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_control
 </UL>
 
@@ -2244,16 +2245,16 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_cali_data
 </UL>
 
-<P><STRONG><a name="[13e]"></a>refresh_digital_tube</STRONG> (Thumb, 316 bytes, Stack size 8 bytes, bsp_io.o(i.refresh_digital_tube))
+<P><STRONG><a name="[13f]"></a>refresh_digital_tube</STRONG> (Thumb, 316 bytes, Stack size 8 bytes, bsp_io.o(i.refresh_digital_tube))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = refresh_digital_tube &rArr; display_num &rArr; write_digital_io
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_num
+<BR>[Calls]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_num
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;digital_tube_init
+<BR>[Called By]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;digital_tube_init
 </UL>
 
-<P><STRONG><a name="[127]"></a>send_arm_moto_current</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, can_device.o(i.send_arm_moto_current))
+<P><STRONG><a name="[128]"></a>send_arm_moto_current</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, can_device.o(i.send_arm_moto_current))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = send_arm_moto_current &rArr; write_can &rArr; HAL_CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_can
@@ -2261,15 +2262,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_control
 </UL>
 
-<P><STRONG><a name="[134]"></a>send_chassis_moto_current</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, can_device.o(i.send_chassis_moto_current))
+<P><STRONG><a name="[135]"></a>send_chassis_moto_current</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, can_device.o(i.send_chassis_moto_current))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = send_chassis_moto_current &rArr; write_can &rArr; HAL_CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_can
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_custom_control
+<BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_custom_control
 </UL>
 
-<P><STRONG><a name="[13a]"></a>send_chassis_moto_zero_current</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, can_device.o(i.send_chassis_moto_zero_current))
+<P><STRONG><a name="[13b]"></a>send_chassis_moto_zero_current</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, can_device.o(i.send_chassis_moto_zero_current))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = send_chassis_moto_zero_current &rArr; write_can &rArr; HAL_CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_can
@@ -2285,12 +2286,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;storage_moto_control
 </UL>
 
-<P><STRONG><a name="[129]"></a>set_digital_io_dir</STRONG> (Thumb, 370 bytes, Stack size 16 bytes, bsp_io.o(i.set_digital_io_dir))
+<P><STRONG><a name="[12a]"></a>set_digital_io_dir</STRONG> (Thumb, 370 bytes, Stack size 16 bytes, bsp_io.o(i.set_digital_io_dir))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = set_digital_io_dir
 </UL>
 <BR>[Called By]<UL><LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;storage_moto_init
-<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_init
-<LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;digital_tube_init
+<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_init
+<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;digital_tube_init
 </UL>
 
 <P><STRONG><a name="[112]"></a>sqrt</STRONG> (Thumb, 110 bytes, Stack size 32 bytes, sqrt.o(i.sqrt))
@@ -2305,11 +2306,11 @@ Global Symbols
 <P><STRONG><a name="[142]"></a>storage_moto_control</STRONG> (Thumb, 132 bytes, Stack size 32 bytes, test_custom.o(i.storage_moto_control))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = storage_moto_control &rArr; send_storage_moto_current &rArr; write_can &rArr; HAL_CAN_Transmit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_calc
+<BR>[Calls]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_calc
 <LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_storage_moto_current
 <LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;execute_task
 </UL>
@@ -2318,7 +2319,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = storage_moto_init &rArr; set_digital_io_dir
 </UL>
 <BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_init
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_digital_io_dir
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_digital_io_dir
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;execute_task
 </UL>
@@ -2447,7 +2448,7 @@ Global Symbols
 <LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
 <LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelayUntil
+<BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osDelayUntil
 </UL>
 
 <P><STRONG><a name="[15b]"></a>vTaskStartScheduler</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, tasks.o(i.vTaskStartScheduler))
@@ -2482,17 +2483,18 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_CAN_Transmit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_storage_moto_current
-<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_chassis_moto_zero_current
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_chassis_moto_current
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_arm_moto_current
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_chassis_moto_zero_current
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_chassis_moto_current
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;send_arm_moto_current
 </UL>
 
-<P><STRONG><a name="[140]"></a>write_digital_io</STRONG> (Thumb, 158 bytes, Stack size 16 bytes, bsp_io.o(i.write_digital_io))
+<P><STRONG><a name="[125]"></a>write_digital_io</STRONG> (Thumb, 158 bytes, Stack size 16 bytes, bsp_io.o(i.write_digital_io))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = write_digital_io
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_num
+<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_control
+<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;display_num
 </UL>
 
 <P><STRONG><a name="[149]"></a>write_led_io</STRONG> (Thumb, 206 bytes, Stack size 16 bytes, bsp_io.o(i.write_led_io))
@@ -2539,7 +2541,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[15e]"></a>xTaskGetTickCount</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, tasks.o(i.xTaskGetTickCount))
-<BR><BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelSysTick
+<BR><BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelSysTick
 </UL>
 
 <P><STRONG><a name="[15d]"></a>xTaskGetTickCountFromISR</STRONG> (Thumb, 16 bytes, Stack size 16 bytes, tasks.o(i.xTaskGetTickCountFromISR))
@@ -2547,7 +2549,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortValidateInterruptPriority
 </UL>
-<BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelSysTick
+<BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelSysTick
 </UL>
 
 <P><STRONG><a name="[186]"></a>xTaskIncrementTick</STRONG> (Thumb, 282 bytes, Stack size 24 bytes, tasks.o(i.xTaskIncrementTick))
@@ -2596,10 +2598,10 @@ Global Symbols
 
 <P><STRONG><a name="[1cf]"></a>_fabs</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, basic.o(x$fpl$basic), UNUSED)
 
-<P><STRONG><a name="[125]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f))
+<P><STRONG><a name="[126]"></a>__aeabi_d2f</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
+<BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
 <LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;storage_moto_control
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_control
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_attitude_update
@@ -2632,7 +2634,7 @@ Global Symbols
 <P><STRONG><a name="[10f]"></a>__aeabi_ddiv</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_ddiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
+<BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
 <LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;storage_moto_control
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_control
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
@@ -2658,7 +2660,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[120]"></a>__aeabi_i2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt))
-<BR><BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
+<BR><BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
 <LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;storage_moto_control
 <LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;arm_moto_control
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
@@ -2667,7 +2669,7 @@ Global Symbols
 <P><STRONG><a name="[1d0]"></a>_dflt</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt), UNUSED)
 
 <P><STRONG><a name="[121]"></a>__aeabi_ui2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu))
-<BR><BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
+<BR><BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 </UL>
 
@@ -2676,7 +2678,7 @@ Global Symbols
 <P><STRONG><a name="[109]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
+<BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_twist_handle
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;imu_attitude_update
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_sin
 <LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
@@ -2783,19 +2785,19 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[12b]"></a>encoder_data_handle</STRONG> (Thumb, 204 bytes, Stack size 12 bytes, can_device.o(i.encoder_data_handle))
+<P><STRONG><a name="[12c]"></a>encoder_data_handle</STRONG> (Thumb, 204 bytes, Stack size 12 bytes, can_device.o(i.encoder_data_handle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = encoder_data_handle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can2_recv_callback
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can1_recv_callback
 </UL>
 
-<P><STRONG><a name="[12a]"></a>get_moto_offset</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, can_device.o(i.get_moto_offset))
+<P><STRONG><a name="[12b]"></a>get_moto_offset</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, can_device.o(i.get_moto_offset))
 <BR><BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can2_recv_callback
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;can1_recv_callback
 </UL>
 
-<P><STRONG><a name="[13c]"></a>remote_data_handle</STRONG> (Thumb, 376 bytes, Stack size 16 bytes, uart_device.o(i.remote_data_handle))
+<P><STRONG><a name="[13d]"></a>remote_data_handle</STRONG> (Thumb, 376 bytes, Stack size 16 bytes, uart_device.o(i.remote_data_handle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = remote_data_handle
 </UL>
 <BR>[Calls]<UL><LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
@@ -2804,7 +2806,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[163]"></a>abs_limit</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, pid.o(i.abs_limit))
-<BR><BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_calc
+<BR><BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pid_calc
 </UL>
 
 <P><STRONG><a name="[a1]"></a>DMA_CalcBaseAndBitshift</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, stm32f4xx_hal_dma.o(i.DMA_CalcBaseAndBitshift))
@@ -2896,7 +2898,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[15c]"></a>inHandlerMode</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, cmsis_os.o(i.inHandlerMode))
-<BR><BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelSysTick
+<BR><BR>[Called By]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;osKernelSysTick
 </UL>
 
 <P><STRONG><a name="[161]"></a>makeFreeRtosPriority</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, cmsis_os.o(i.makeFreeRtosPriority))
@@ -2914,9 +2916,9 @@ Local Symbols
 <P><STRONG><a name="[152]"></a>ist_reg_read_by_mpu</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, bsp_imu.o(i.ist_reg_read_by_mpu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = ist_reg_read_by_mpu &rArr; mpu_write_reg &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
+<BR>[Calls]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
 <LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_reg
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist8310_init
 </UL>
@@ -2924,8 +2926,8 @@ Local Symbols
 <P><STRONG><a name="[151]"></a>ist_reg_write_by_mpu</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, bsp_imu.o(i.ist_reg_write_by_mpu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = ist_reg_write_by_mpu &rArr; mpu_write_reg &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
+<BR>[Calls]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist8310_init
 </UL>
@@ -2941,8 +2943,8 @@ Local Symbols
 <P><STRONG><a name="[153]"></a>mpu_mst_i2c_auto_read_config</STRONG> (Thumb, 140 bytes, Stack size 16 bytes, bsp_imu.o(i.mpu_mst_i2c_auto_read_config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = mpu_mst_i2c_auto_read_config &rArr; mpu_write_reg &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
+<BR>[Calls]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_write_reg
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist8310_init
 </UL>
@@ -2950,8 +2952,8 @@ Local Symbols
 <P><STRONG><a name="[157]"></a>mpu_offset_cal</STRONG> (Thumb, 296 bytes, Stack size 8 bytes, bsp_imu.o(i.mpu_offset_cal))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = mpu_offset_cal &rArr; mpu_read_regs &rArr; HAL_SPI_TransmitReceive &rArr; SPI_CheckFlag_BSY &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_regs
+<BR>[Calls]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_read_regs
+<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mpu_device_init
 </UL>
@@ -2989,12 +2991,12 @@ Local Symbols
 <LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ist_reg_read_by_mpu
 </UL>
 
-<P><STRONG><a name="[13f]"></a>display_num</STRONG> (Thumb, 184 bytes, Stack size 24 bytes, bsp_io.o(i.display_num))
+<P><STRONG><a name="[140]"></a>display_num</STRONG> (Thumb, 184 bytes, Stack size 24 bytes, bsp_io.o(i.display_num))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = display_num &rArr; write_digital_io
 </UL>
-<BR>[Calls]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_digital_io
+<BR>[Calls]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write_digital_io
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refresh_digital_tube
+<BR>[Called By]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refresh_digital_tube
 </UL>
 
 <P><STRONG><a name="[c3]"></a>SPI_CheckFlag_BSY</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, stm32f4xx_hal_spi.o(i.SPI_CheckFlag_BSY))

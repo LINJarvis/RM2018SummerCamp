@@ -47,9 +47,9 @@ void arm_moto_control(void)
     //start_pwm_output(PWM_IO1);
     //set_pwm_param(PWM_IO1,2200);
 
-    //relay trigger
     time_after_start = (HAL_GetTick() - pick_time_begin) / 100;
 
+	  // auto pick
     if (if_pick == 1)
     {
         pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
@@ -90,20 +90,20 @@ void arm_moto_control(void)
 
         if (time_after_start >= 40 && time_after_start < 45)
         {
-            pid_init(&pid_arms[0][3], 7000, 0, 1, 0, 0);
-            arms[0][3] = 255; // pitch goes from critical to value set
+            pid_init(&pid_arms[0][3], 7000, 0, 0.4, 0, 0);
+            arms[0][3] = 230; // pitch goes from critical to value set
         }
 
-        if (time_after_start >= 45 && time_after_start < 50)
+        if (time_after_start >= 45 && time_after_start < 47)
         {
-            arms[0][0] = 140; // fric continues going, brick stored
-            arms[0][1] = -140;
+            arms[0][0] = 160; // fric continues going, brick stored
+            arms[0][1] = -160;
         }
 
-        if (time_after_start >= 50 && time_after_start < 60)
+        if (time_after_start >= 47 && time_after_start < 60)
         {
             pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
-            arms[0][3] = 120; // pitch goes back to critical vaule
+            arms[0][3] = 100; // pitch goes back to critical vaule
         }
 
         if (time_after_start >= 60 && time_after_start < 65)
@@ -119,15 +119,7 @@ void arm_moto_control(void)
             if_pick = 0;
         }
     }
-    else
-    {
-        pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
-        arms[0][3] = 70; // pitch resets
-        arms[0][2] = 0;  // up&down resets
-        arms[0][0] = 0;  // fric goes back
-        arms[0][1] = 0;
-    }
-    /*
+		
     if (if_put == 1)
     {
         height = 0; // reset no. of blocks
@@ -145,68 +137,74 @@ void arm_moto_control(void)
                 height++;
         }
 
-        if (time_after_start < 1 * 20)
-            arms[0][2] = someangle; // up&down goes upward to value set
+        if (time_after_start >= 10 && time_after_start < 20)
+            arms[0][2] = 400; // up&down goes upward to value set
 
-        if (time_after_start >= 1 * 20 && time_after_start < 2 * 20)
+        if (time_after_start >= 20 && time_after_start < 40)
         {
             pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
-            arms[0][3] = critical1; // pitch goes to c1
+            arms[0][3] = 180; // pitch goes upward to critical
         }
 
-        if (time_after_start >= 2 * 20 && time_after_start < 3 * 20)
+        if (time_after_start >= 40 && time_after_start < 45)
         {
-            pid_init(&pid_arms[0][3], 7000, 0, -1, 0, 0);
-            arms[0][3] = end; // pitch goes from c1 to value set
+            arms[0][2] = 0; // up&down goes upward to value set
+            pid_init(&pid_arms[0][3], 7000, 0, 1.5, 0, 0);
+            arms[0][3] = 230; // pitch goes from critical to value set
         }
 
-        if (time_after_start >= 3 * 20 && time_after_start < 4 * 20)
+        if (time_after_start >= 45 && time_after_start < 57)
         {
-            write_digital_io(1,1);
-            arms[0][0] = -60; // fric moves, brick picked from storage
+            arms[0][0] = -60; // fric 
             arms[0][1] = 60;
         }
 
-        if (time_after_start >= 4 * 20 && time_after_start < 5 * 20)
+        if (time_after_start >= 57 && time_after_start < 70)
         {
-            pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
-            write_digital_io(1,0); // release relay
-            arms[0][3] = c2; // pitch goes to c2
+            arms[0][2] = 400; // up&down goes upward to value set
+            pid_init(&pid_arms[0][3], 7000, 0, 40, 0.1, 0.1);
+            arms[0][3] = 100; // pitch goes back to critical vaule
         }
 
-        if (time_after_start >= 5 * 20 && time_after_start < 6 * 20)
+        if (time_after_start >= 70 && time_after_start < 75)
+        {
+            pid_init(&pid_arms[0][3], 7000, 0, -0.5, 0, 0);
+            arms[0][3] = 0; // pitch resets
+        }
+        if (time_after_start >= 75 && time_after_start < 80)
         {
             pid_init(&pid_arms[0][3], 7000, 0, -1, 0, 0);
-            arms[0][2] = 0;  // reset downward
-            arms[0][3] = 10; // put brick
+            //arms[0][2] = 0;  // reset downward
         }
 
-        if (time_after_start >= 6 * 20 && time_after_start < 7 * 20)
+        if (time_after_start >= 80 && time_after_start < 85)
         {
-            arms[0][0] = -120; // brick released
-            arms[0][1] = 120;
+            arms[0][0] = -140; // brick released
+            arms[0][1] = 140;
         }
 
-        if (time_after_start >= 7 * 20 && time_after_start < 8 * 20)
+        if (time_after_start >= 85 && time_after_start < 90)
         {
             pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
             arms[0][3] = 70; // pitch resets
             arms[0][2] = 0;  // up&down resets
             arms[0][0] = 0;  // fric goes back
-            arms[0][1] = 0;
+            arms[0][1] = 0; 
+					  if_put = 0;
         }
-        if_put = 0;
     }
-    else
-    {
+	
+		if( if_pick == 0 && if_put == 0)
+		{
+			
         pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
         arms[0][3] = 70; // pitch resets
         arms[0][2] = 0;  // up&down resets
         arms[0][0] = 0;  // fric goes back
         arms[0][1] = 0;
         write_digital_io(1,0);
-    } 
-*/
+		}
+
     // calculate and send currents to motors
     arms[2][0] = pid_calc(&pid_arms[1][0], moto_arms[0].speed_rpm,
                           pid_calc(&pid_arms[0][0], moto_arms[0].total_angle / 36.0, arms[0][0]));
@@ -229,8 +227,8 @@ void arm_moto_init(void)
     //       [1] 6 - fric wheel 2 (2006)
     //       [2] 7 - up&down      (3508)
     //       [3] 8 - pitch        (3508)
-    pid_init(&pid_arms[0][0], 7000, 0, 50, 0, 0);
-    pid_init(&pid_arms[0][1], 7000, 0, 50, 0.1, 0);
+    pid_init(&pid_arms[0][0], 7000, 0, 35, 0.1, 0);
+    pid_init(&pid_arms[0][1], 7000, 0, 35, 0.1, 0);
     pid_init(&pid_arms[0][2], 7000, 0, 26, 0.1, 0);
     pid_init(&pid_arms[0][3], 7000, 0, 50, 0, 0);
 

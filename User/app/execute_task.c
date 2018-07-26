@@ -22,28 +22,15 @@ void execute_task(const void *argu)
 
     while (1)
     {
-        if (rc.sw2 == 3)
+        if (rc.kb.bit.X && rc.kb.bit.SHIFT == 0)
         {
-            test_servo = 1;
-        }
-
-        else
+            if_pick = 1;
+            pick_time_begin = HAL_GetTick();
+				}
+        if (rc.kb.bit.X  && rc.kb.bit.SHIFT == 1)
         {
-            test_servo = 0;
-        }
-
-        if (rc.kb.bit.X)
-        {
-            if (rc.kb.bit.SHIFT == 0)
-            {
-                if_pick = 1;
-                pick_time_begin = HAL_GetTick();
-            }
-            else
-            {
-                if_put = 1;
-                pick_time_begin = HAL_GetTick();
-            }
+            if_put = 1;
+            pick_time_begin = HAL_GetTick();
         }
         if (rc.kb.bit.V)
         {
@@ -71,6 +58,6 @@ void execute_task(const void *argu)
         arm_moto_control();
         storage_moto_control();
 
-        osDelay(10);
+        osDelay(7);
     }
 }
