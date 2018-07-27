@@ -11,8 +11,14 @@ uint8_t relay = 0;
 uint8_t if_pick = 0;
 uint8_t if_put = 0;
 uint8_t which_storage = 1; // 1 is left, 2 is right
+uint8_t usart3_recv[4];
 extern long pick_time_begin;
 int time_after_start;
+
+///////////////////////////////////////////////////////
+		uint8_t test;
+///////////////////////////////////////////////////////
+
 
 uint8_t ir_sensor[6];
 
@@ -38,14 +44,16 @@ int16_t storage[3][2];
 
 int16_t height;
 
+
 void io_pwm_control(void)
 {
 	
+	
     if (relay == 1)
-        write_digital_io(8, 1);
+        write_digital_io(7, 1);
     else
 
-        write_digital_io(8, 0);
+        write_digital_io(7, 0);
 }
 
 void arm_moto_control(void)
@@ -65,12 +73,12 @@ void arm_moto_control(void)
         pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
         height = 0; // reset no. of blocks
 
-        read_digital_io(5, &ir_sensor[0]);  //block 0
-        read_digital_io(6, &ir_sensor[1]);  //block 1
-        read_digital_io(7, &ir_sensor[2]);  //block 2
-        read_digital_io(8, &ir_sensor[3]);  //block 3
-        read_digital_io(9, &ir_sensor[4]);  //block 4
-        read_digital_io(10, &ir_sensor[5]); //block 5
+        read_digital_io(1, &ir_sensor[0]);  //block 0
+        read_digital_io(2, &ir_sensor[1]);  //block 1
+        read_digital_io(3, &ir_sensor[2]);  //block 2
+        read_digital_io(4, &ir_sensor[3]);  //block 3
+        read_digital_io(5, &ir_sensor[4]);  //block 4
+        read_digital_io(6, &ir_sensor[5]); //block 5
 
         for (int i = 0; i < 6; i++) // get no. of blocks
         {
@@ -139,12 +147,12 @@ void arm_moto_control(void)
     {
         height = 0; // reset no. of blocks
 
-        read_digital_io(3, &ir_sensor[0]); //block 0
-        read_digital_io(4, &ir_sensor[1]); //block 1
-        read_digital_io(5, &ir_sensor[2]); //block 2
-        read_digital_io(6, &ir_sensor[3]); //block 3
-        read_digital_io(7, &ir_sensor[4]); //block 4
-        read_digital_io(8, &ir_sensor[5]); //block 5
+        read_digital_io(1, &ir_sensor[0]);  //block 0
+        read_digital_io(2, &ir_sensor[1]);  //block 1
+        read_digital_io(3, &ir_sensor[2]);  //block 2
+        read_digital_io(4, &ir_sensor[3]);  //block 3
+        read_digital_io(5, &ir_sensor[4]);  //block 4
+        read_digital_io(6, &ir_sensor[5]); //block 5
 
         for (int i = 0; i < 6; i++) // get no. of blocks
         {
@@ -224,7 +232,6 @@ void arm_moto_control(void)
         arms[0][2] = 0;  // up&down resets
         arms[0][0] = 0;  // fric goes back
         arms[0][1] = 0;
-        //write_digital_io(8, 0);
     }
 
     // calculate and send currents to motors
@@ -263,12 +270,18 @@ void arm_moto_init(void)
     pid_init(&pid_arms[1][1], 7000, 0, 10, 0, 0);
     pid_init(&pid_arms[1][2], 7000, 0, 10, 0, 0);
     pid_init(&pid_arms[1][3], 10000, 0, 10, 0, 0);
+		
+		// relay @ GPIO 7
+    set_digital_io_dir(7, IO_OUTPUT);
+		// LEDs on camera @ GPIO 8-9
+    set_digital_io_dir(8, IO_OUTPUT);
+    set_digital_io_dir(9, IO_OUTPUT);
 }
 
 void storage_moto_control(void)
 {
     storage[2][0] = pid_calc(&pid_storage[1][0], moto_storage[0].speed_rpm,
-                             pid_calc(&pid_storage[0][0], moto_storage[0].total_angle / 36.0, storage[0][0]));
+                              pid_calc(&pid_storage[0][0], moto_storage[0].total_angle / 36.0, storage[0][0]));
     //storage[2][1] = pid_calc(&pid_storage[1][1], moto_storage[1].speed_rpm,
     //                       pid_calc(&pid_storage[0][1], moto_storage[1].total_angle / 36.0, storage[0][1]));
 
@@ -294,14 +307,14 @@ void storage_moto_init(void)
     pid_init(&pid_storage[1][1], 7000, 0, 1, 0.1, 0);
 
 	
+		// IRs @ GPIO 1-6
     set_digital_io_dir(1, IO_INPUT);
     set_digital_io_dir(2, IO_INPUT);
     set_digital_io_dir(3, IO_INPUT);
     set_digital_io_dir(4, IO_INPUT);
     set_digital_io_dir(5, IO_INPUT);
     set_digital_io_dir(6, IO_INPUT);
-		
-    set_digital_io_dir(8, IO_OUTPUT);
 
     storage[0][0] = 500;
 }
+

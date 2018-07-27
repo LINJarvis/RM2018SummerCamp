@@ -12,6 +12,7 @@ void storage_moto_init(void);
 void storage_moto_control(void);
 
 void io_pwm_control(void);
+//void Usart3_callback(void);
 
 #endif
 
