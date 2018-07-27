@@ -22,8 +22,10 @@ void execute_task(const void *argu)
     storage_moto_init();
 	  uart_init(USER_UART3,9600,WORD_LEN_8B,STOP_BITS_1,PARITY_NONE);
 	  //uart_recv_callback_register(USER_UART3,Usart3_callback);
-		uart_receive_start(USER_UART3,usart3_recv,4);
-
+		uart_receive_start(USER_UART3,usart3_recv,4) ;
+	
+		write_led_io(LASER_IO, LED_ON);
+	
     while (1)
     {
         if ((rc.kb.bit.X && rc.kb.bit.SHIFT == 0)|| rc.sw1 == 1)
