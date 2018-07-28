@@ -21,6 +21,7 @@ int lift_angle = 0;
 extern long pick_time_begin;
 int time_after_start;
 extern int NO_AUTO_MODE; // set it @ startup.c
+int CV_offest = 0;
 
 uint8_t ir_sensor[6];
 
