@@ -13,11 +13,12 @@ extern uint8_t if_put;
 extern uint8_t which_storage; // 0 is left, 1 is right
 extern uint8_t usart3_recv[];
 long pick_time_begin = 0;
+extern uint16_t height;
 //uint16_t servo_angle = 1000;
 
 void execute_task(const void *argu)
 {
-    //测试电机初始化
+    // init motors
     arm_moto_init();
     storage_moto_init();
 	  uart_init(USER_UART3,9600,WORD_LEN_8B,STOP_BITS_1,PARITY_NONE);
@@ -49,7 +50,7 @@ void execute_task(const void *argu)
         }
 
         arm_moto_control();
-        storage_moto_control();
+        //storage_moto_control();
         io_pwm_control();
 
 				

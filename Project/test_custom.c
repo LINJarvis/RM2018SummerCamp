@@ -183,7 +183,7 @@ void arm_moto_control(void)
                     storage[0][0] = 980;
             }
 
-            if (time_after_start >= 20 && time_after_start < 40)
+            if (time_after_start >= 10 && time_after_start < 20)
             {
                 // here is number of blocks
                 
@@ -217,7 +217,7 @@ void arm_moto_control(void)
                     lift_angle = 920;
                     break;
                 default:
-                    if_put = 0; // 0 block(s) in this storage
+                    //if_put = 0; // 0 block(s) in this storage
                     if (which_storage == 1)
                         which_storage = 2;
                     else
@@ -227,34 +227,42 @@ void arm_moto_control(void)
                 arms[0][2] = lift_angle; // up&down goes upward to value set
             }
 
-            if (time_after_start >= 40 && time_after_start < 45)
+            if (time_after_start >= 20 && time_after_start < 27)
             {
-                pid_init(&pid_arms[0][3], 7000, 0, 1.5, 0, 0);
-                arms[0][3] = 230; // pitch goes from critical to value set
+                pid_init(&pid_arms[0][3], 7000, 0, 50, 0, 0);
+                arms[0][3] = 1 70; // pitch goes from critical to value set
+            }
+						
+            if (time_after_start >= 27 && time_after_start < 33)
+            {
+                pid_init(&pid_arms[0][3], 7000, 0, 15, 0, 0);
+                arms[0][3] = 210; // pitch goes from critical to value set
             }
 
-            if (time_after_start >= 45 && time_after_start < 50)
+            if (time_after_start >= 36 && time_after_start < 40)
             {
                 arms[0][0] = -68; // fric
             }
 
-            if (time_after_start >= 55 && time_after_start < 65)
+            if (time_after_start >= 40 && time_after_start < 47)
             {
-                pid_init(&pid_arms[0][3], 7000, 0, 40, 0.1, 0.1);
-                arms[0][3] = 0; // pitch goes back to critical vaule
+                pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
+                arms[0][3] = 70; // pitch goes back to critical vaule
             }
-            if (time_after_start >= 65 && time_after_start < 70)
+            if (time_after_start >= 47 && time_after_start < 60)
             {
+                pid_init(&pid_arms[0][3], 7000, 0, 15, 0.1, 0.1);
+                arms[0][3] = 0; // pitch goes back to critical vaule
                 pid_init(&pid_arms[0][3], 7000, 0, -1, 0, 0);
                 arms[0][2] = 0;  // reset downward
             }
 
-            if (time_after_start >= 70 && time_after_start < 75)
+            if (time_after_start >= 60 && time_after_start < 65)
             {
                 arms[0][0] = -140; // brick released
             }
-
-            if (time_after_start >= 75 && time_after_start < 80)
+	
+            if (time_after_start >= 65 && time_after_start < 70)
             {
                 pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
                 storage[0][0] = 500;
