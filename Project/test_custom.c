@@ -62,9 +62,9 @@ void io_pwm_control(void)
         read_digital_io(2, &ir_sensor[1]); // block 1
         read_digital_io(3, &ir_sensor[2]); // block 2
         read_digital_io(4, &ir_sensor[3]); // block 3
-        read_digital_io(5, &ir_sensor[4]); // block 4
+        //read_digital_io(5, &ir_sensor[4]); // block 4
         //read_digital_io(6, &ir_sensor[5]); // block 5
-        for (int i = 0; i < 5; i++)        // get no. of blocks
+        for (int i = 0; i < 4; i++)        // get no. of blocks
         {
             if (ir_sensor[i] == 0)
                 height++;
@@ -94,14 +94,14 @@ void arm_moto_control(void)
                 if (which_storage == 1)
                     storage[0][0] = -80;
                 if (which_storage == 2)
-                    storage[0][0] = 1050;
+                    storage[0][0] = 980;
+                pid_init(&pid_arms[0][3], 7000, 0, 15, 0.1, 0.1);
                 arms[0][3] = 0; // pitch goes downward
             }
 
             if (time_after_start >= 5 && time_after_start < 10)
             {
-                arms[0][0] = 60; // fric goes, brick picked
-                arms[0][1] = -60;
+                arms[0][0] = 65; // fric goes, brick picked
             }
 
             if (time_after_start >= 10 && time_after_start < 20)
@@ -112,10 +112,10 @@ void arm_moto_control(void)
                 read_digital_io(2, &ir_sensor[1]); //block 1
                 read_digital_io(3, &ir_sensor[2]); //block 2
                 read_digital_io(4, &ir_sensor[3]); //block 3
-                read_digital_io(5, &ir_sensor[4]); //block 4
-                read_digital_io(6, &ir_sensor[5]); //block 5
+                //read_digital_io(5, &ir_sensor[4]); //block 4
+                //read_digital_io(6, &ir_sensor[5]); //block 5
 
-                for (int i = 0; i < 5; i++) // get no. of blocks
+                for (int i = 0; i < 4; i++) // get no. of blocks
                 {
                     if (ir_sensor[i] == 0)
                         height++;
@@ -124,22 +124,19 @@ void arm_moto_control(void)
                 switch (height)
                 {
                 case 0:
-                    lift_angle = 580;
+                    lift_angle = 560;
                     break;
                 case 1:
-                    lift_angle = 650;
+                    lift_angle = 620;
                     break;
                 case 2:
-                    lift_angle = 700;
+                    lift_angle = 770;
                     break;
                 case 3:
-                    lift_angle = 850;
-                    break;
-                case 4:
-                    lift_angle = 1000;
+                    lift_angle = 920;
                     break;
                 default:
-                    if_pick = 0; // over 4 blocks in this storage
+                    if_pick = 0; // 4 blocks in this storage
                     if (which_storage == 1)
                         which_storage = 2;
                     else
@@ -151,34 +148,27 @@ void arm_moto_control(void)
 
             if (time_after_start >= 20 && time_after_start < 40)
             {
-                pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
-                arms[0][3] = 170; // pitch goes upward to critical
+                pid_init(&pid_arms[0][3], 7000, 0, 15, 0.1, 0.1);
+                arms[0][3] = 200; // pitch goes upward to value set
             }
 
             if (time_after_start >= 45 && time_after_start < 50)
             {
-                arms[0][0] = 140; // fric continues going, brick stored
-                arms[0][1] = -140;
+                arms[0][0] = 170; // fric continues going, brick stored
             }
 
             if (time_after_start >= 50 && time_after_start < 60)
             {
-                pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
-                arms[0][3] = 90; // pitch goes back to critical vaule
+                pid_init(&pid_arms[0][3], 7000, 0, 40, 0.1, 0.1);
+                arms[0][3] = 70; // pitch goes back to critical vaule
             }
 
-            if (time_after_start >= 60 && time_after_start < 65)
-            {
-                pid_init(&pid_arms[0][3], 7000, 0, -1, 0, 0);
-                arms[0][3] = 70; // pitch resets
-            }
             if (time_after_start >= 65)
             {
                 lift_angle = 0;
                 storage[0][0] = 500;
                 arms[0][2] = 0; // up&down resets
                 arms[0][0] = 0; // fric goes back
-                arms[0][1] = 0;
                 if_pick = 0;
             }
         }
@@ -196,14 +186,12 @@ void arm_moto_control(void)
             if (time_after_start >= 20 && time_after_start < 40)
             {
 							  // here is number of blocks
-                pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
+                pid_init(&pid_arms[0][3], 7000, 0, 15, 0.1, 0.1);
                 arms[0][3] = 170; // pitch goes upward to critical
             }
             if (time_after_start >= 40 && time_after_start < 70)
             {
                 arms[0][0] = -65; // fric
-                arms[0][1] = 65;
-                arms[0][3] = 185; // pitch goes upward to critical
             }
             /*
             if (time_after_start >= 40 && time_after_start < 45)
@@ -242,7 +230,6 @@ void arm_moto_control(void)
             if (time_after_start >= 110 && time_after_start < 120)
             {
                 arms[0][0] = -140; // brick released
-                arms[0][1] = 140;
             }
 
             if (time_after_start >= 120 && time_after_start < 130)
@@ -252,7 +239,6 @@ void arm_moto_control(void)
                 arms[0][3] = 70; // pitch resets
                 arms[0][2] = 0;  // up&down resets
                 arms[0][0] = 0;  // fric goes back
-                arms[0][1] = 0;
                 if_put = 0;
             }
         }
@@ -265,20 +251,19 @@ void arm_moto_control(void)
             arms[0][3] = 70; // pitch resets
             arms[0][2] = 0;  // up&down resets
             arms[0][0] = 0;  // fric goes back
-            arms[0][1] = 0;
         }
     }
     // calculate and send currents to motors
     arms[2][0] = pid_calc(&pid_arms[1][0], moto_arms[0].speed_rpm,
                           pid_calc(&pid_arms[0][0], moto_arms[0].total_angle / 36.0, arms[0][0]));
     arms[2][1] = pid_calc(&pid_arms[1][1], moto_arms[1].speed_rpm,
-                          pid_calc(&pid_arms[0][1], moto_arms[1].total_angle / 36.0, arms[0][1]));
+                          pid_calc(&pid_arms[0][1], moto_arms[1].total_angle / 36.0, -arms[0][0]));
     arms[2][2] = pid_calc(&pid_arms[1][2], moto_arms[2].speed_rpm,
                           pid_calc(&pid_arms[0][2], moto_arms[2].total_angle / 19.2, arms[0][2]));
     arms[2][3] = pid_calc(&pid_arms[1][3], moto_arms[3].speed_rpm,
                           pid_calc(&pid_arms[0][3], moto_arms[3].total_angle / 19.2, arms[0][3]));
 
-    //send_arm_moto_current(arms[2]);
+    send_arm_moto_current(arms[2]);
 }
 
 void arm_moto_init(void)
@@ -292,7 +277,7 @@ void arm_moto_init(void)
     pid_init(&pid_arms[0][0], 7000, 0, 35, 0.1, 0);
     pid_init(&pid_arms[0][1], 7000, 0, 35, 0.1, 0);
     pid_init(&pid_arms[0][2], 7000, 0, 26, 0.1, 0);
-    pid_init(&pid_arms[0][3], 7000, 0, 50, 0, 0);
+    pid_init(&pid_arms[0][3], 7000, 0, 15, 0, 0);
 
     // PID init:
     //   [1] speed_set
@@ -344,7 +329,7 @@ void storage_moto_init(void)
     set_digital_io_dir(2, IO_INPUT);
     set_digital_io_dir(3, IO_INPUT);
     set_digital_io_dir(4, IO_INPUT);
-    set_digital_io_dir(5, IO_INPUT);
+    //set_digital_io_dir(5, IO_INPUT);
     //set_digital_io_dir(6, IO_INPUT);
 
     if (!NO_AUTO_MODE)
