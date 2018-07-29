@@ -197,29 +197,24 @@
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>rc.kb.bit.SHIFT,0x0A</ItemText>
+          <ItemText>arms[0][3],0x0A</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>rc.kb.bit.X,0x0A</ItemText>
-        </Ww>
-        <Ww>
-          <count>2</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>arms[0],0x0A</ItemText>
+          <ItemText>pid_arms[0][3].p</ItemText>
         </Ww>
       </WatchWindow1>
       <WatchWindow2>
         <Ww>
           <count>0</count>
           <WinNumber>2</WinNumber>
-          <ItemText>pid_arms[0]</ItemText>
+          <ItemText>pid_arms[0][3].get</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>2</WinNumber>
-          <ItemText>moto_arms[3].total_angle/19.2</ItemText>
+          <ItemText>pid_arms[0][3].set</ItemText>
         </Ww>
       </WatchWindow2>
       <Tracepoint>

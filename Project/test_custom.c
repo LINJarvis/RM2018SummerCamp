@@ -147,12 +147,18 @@ void arm_moto_control(void)
                 arms[0][2] = lift_angle; // up&down goes upward to value set
             }
 
-            if (time_after_start >= 20 && time_after_start < 40)
+            if (time_after_start >= 20 && time_after_start < 27)
             {
-                pid_init(&pid_arms[0][3], 7000, 0, 15, 0.1, 0.1);
-                arms[0][3] = 200; // pitch goes upward to value set
+                pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
+                arms[0][3] = 120; // pitch goes upward to value set
             }
 
+            if (time_after_start >= 27 && time_after_start < 35)
+            {
+                pid_init(&pid_arms[0][3], 7000, 0, 12, 0.1, 0.5);
+                arms[0][3] = 220; // pitch goes upward to value set
+            }
+						
             if (time_after_start >= 45 && time_after_start < 50)
             {
                 arms[0][0] = 170; // fric continues going, brick stored
@@ -160,8 +166,8 @@ void arm_moto_control(void)
 
             if (time_after_start >= 50 && time_after_start < 60)
             {
-                pid_init(&pid_arms[0][3], 7000, 0, 40, 0.1, 0.1);
-                arms[0][3] = 70; // pitch goes back to critical vaule
+                pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
+                arms[0][3] = 70; // pitch goes back
             }
 
             if (time_after_start >= 65)
@@ -206,16 +212,16 @@ void arm_moto_control(void)
                 switch (height)
                 {
                 case 1:
-                    lift_angle = 560;
+                    lift_angle = 560 - 300;
                     break;
                 case 2:
-                    lift_angle = 620;
+                    lift_angle = 620 - 250;
                     break;
                 case 3:
-                    lift_angle = 770;
+                    lift_angle = 770 - 200;
                     break;
                 case 4:
-                    lift_angle = 920;
+                    lift_angle = 920 - 200;
                     break;
                 default:
                     //if_put = 0; // 0 block(s) in this storage
@@ -230,37 +236,39 @@ void arm_moto_control(void)
 
             if (time_after_start >= 20 && time_after_start < 27)
             {
-                pid_init(&pid_arms[0][3], 7000, 0, 50, 0, 0);
-                arms[0][3] = 1 70; // pitch goes from critical to value set
+                pid_init(&pid_arms[0][3], 7000, 0, 30, 0, 0);
+                arms[0][3] = 180; // pitch goes from critical to value set
             }
 						
             if (time_after_start >= 27 && time_after_start < 33)
             {
-                pid_init(&pid_arms[0][3], 7000, 0, 15, 0, 0);
-                arms[0][3] = 210; // pitch goes from critical to value set
+                pid_init(&pid_arms[0][3], 7000, 0, 12, 0, 1);
+                arms[0][3] = 250; // pitch goes from critical to value set
             }
 
             if (time_after_start >= 36 && time_after_start < 40)
             {
+							  relay = 1;
                 arms[0][0] = -68; // fric
             }
 
-            if (time_after_start >= 40 && time_after_start < 47)
+            if (time_after_start >= 40 && time_after_start < 53)
             {
+							  relay = 0;
                 pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
                 arms[0][3] = 70; // pitch goes back to critical vaule
             }
-            if (time_after_start >= 47 && time_after_start < 60)
+            if (time_after_start >= 53 && time_after_start < 60)
             {
                 pid_init(&pid_arms[0][3], 7000, 0, 15, 0.1, 0.1);
                 arms[0][3] = 0; // pitch goes back to critical vaule
                 pid_init(&pid_arms[0][3], 7000, 0, -1, 0, 0);
-                arms[0][2] = 0;  // reset downward
+                arms[0][2] = 100;  // reset downward
             }
 
             if (time_after_start >= 60 && time_after_start < 65)
             {
-                arms[0][0] = -140; // brick released
+                arms[0][0] = -160; // brick released
             }
 	
             if (time_after_start >= 65 && time_after_start < 70)
@@ -279,7 +287,7 @@ void arm_moto_control(void)
 
             pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
             storage[0][0] = 500;
-            arms[0][3] = 70; // pitch resets
+            arms[0][3] = 60; // pitch resets
             arms[0][2] = 0;  // up&down resets
             arms[0][0] = 0;  // fric goes back
         }
