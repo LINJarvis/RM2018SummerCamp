@@ -10,7 +10,7 @@ int16_t test_moto_speed = 0;
 int16_t test_moto_current[1];
 
 // test values
-uint8_t relay = 0;
+uint8_t relay = 1; // 1 is open, 0 is closed
 uint8_t get_height = 0; // do not set it to 1 if auto mode is enabled
 
 uint8_t if_pick = 0;
@@ -166,7 +166,7 @@ void arm_moto_control(void)
 
             if (time_after_start >= 50 && time_after_start < 60)
             {
-                pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
+                pid_init(&pid_arms[0][3], 7000, 0, 30, 0.1, 0.1);
                 arms[0][3] = 70; // pitch goes back
             }
 
@@ -237,24 +237,35 @@ void arm_moto_control(void)
             if (time_after_start >= 20 && time_after_start < 27)
             {
                 pid_init(&pid_arms[0][3], 7000, 0, 30, 0, 0);
-                arms[0][3] = 180; // pitch goes from critical to value set
+                arms[0][3] = 160; // pitch goes from critical to value set
             }
 						
             if (time_after_start >= 27 && time_after_start < 33)
             {
-                pid_init(&pid_arms[0][3], 7000, 0, 12, 0, 1);
-                arms[0][3] = 250; // pitch goes from critical to value set
+								if(height > 1)
+										pid_init(&pid_arms[0][3], 7000, 0, 40, 0, 0);
+                else
+										pid_init(&pid_arms[0][3], 7000, 0, 15, 0, 1);
+                arms[0][3] = 260; // pitch goes from critical to value set
             }
 
+            if (time_after_start >= 33 && time_after_start < 36)
+            {
+								if(height > 1)
+										relay = 0;
+            }
+						
             if (time_after_start >= 36 && time_after_start < 40)
             {
-							  relay = 1;
-                arms[0][0] = -68; // fric
+								if(height > 1)
+										arms[0][0] = -90; // fric
+                else
+										arms[0][0] = -75; // fric
             }
 
             if (time_after_start >= 40 && time_after_start < 53)
             {
-							  relay = 0;
+							  relay = 1;
                 pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
                 arms[0][3] = 70; // pitch goes back to critical vaule
             }
@@ -262,7 +273,6 @@ void arm_moto_control(void)
             {
                 pid_init(&pid_arms[0][3], 7000, 0, 15, 0.1, 0.1);
                 arms[0][3] = 0; // pitch goes back to critical vaule
-                pid_init(&pid_arms[0][3], 7000, 0, -1, 0, 0);
                 arms[0][2] = 100;  // reset downward
             }
 
@@ -275,7 +285,7 @@ void arm_moto_control(void)
             {
                 pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
                 storage[0][0] = 500;
-                arms[0][3] = 70; // pitch resets
+                arms[0][3] = 60; // pitch resets
                 arms[0][2] = 0;  // up&down resets
                 arms[0][0] = 0;  // fric goes back
                 if_put = 0;
@@ -313,8 +323,8 @@ void arm_moto_init(void)
     //       [1] 6 - fric wheel 2 (2006)
     //       [2] 7 - up&down      (3508)
     //       [3] 8 - pitch        (3508)
-    pid_init(&pid_arms[0][0], 7000, 0, 35, 0.1, 0);
-    pid_init(&pid_arms[0][1], 7000, 0, 35, 0.1, 0);
+    pid_init(&pid_arms[0][0], 7000, 0, 40, 0.1, 0);
+    pid_init(&pid_arms[0][1], 7000, 0, 40, 0.1, 0);
     pid_init(&pid_arms[0][2], 7000, 0, 26, 0.1, 0);
     pid_init(&pid_arms[0][3], 7000, 0, 15, 0, 0);
 
@@ -353,6 +363,7 @@ void storage_moto_init(void)
     //       [1] 2 - somewhat (2006)
 
     pid_init(&pid_storage[0][0], 10000, 0, 15, 0.1, 0.5);
+	
     pid_init(&pid_storage[0][1], 7000, 0, 0.5, 0.1, 0);
 
     // PID init:

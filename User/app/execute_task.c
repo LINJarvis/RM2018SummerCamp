@@ -19,9 +19,9 @@ long pick_time_begin = 0;
 
 void Usart3_callback()
 {
-    if (usart3_recv[0] = '-')
+    if (usart3_recv[0] == '-')
         CV_offest = -(usart3_recv[1] * 100 + usart3_recv[2] * 10 + usart3_recv[3]);
-    else if (usart3_recv[0] = '0')
+    else if (usart3_recv[0] == '0')
     {
         CV_offest = usart3_recv[1] * 100 + usart3_recv[2] * 10 + usart3_recv[3];
     }
@@ -60,10 +60,11 @@ void execute_task(const void *argu)
             which_storage = 2;
         }
 
-        arm_moto_control();
-        storage_moto_control();
+        
+				arm_moto_control();
+        //storage_moto_control();
         io_pwm_control();
 
-        osDelay(7);
+        osDelay(5);
     }
 }

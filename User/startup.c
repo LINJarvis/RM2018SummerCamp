@@ -36,7 +36,7 @@
 
 /*****************************************/
 
-int NO_AUTO_MODE = 1;
+int NO_AUTO_MODE = 0;
 
 /*****************************************/
 
@@ -114,7 +114,7 @@ void sys_start_task(void)
 #endif
 
 #ifdef USER_TASK4
-    osThreadDef(ostask4, USER_TASK4, osPriorityNormal, 0, 128);
+    osThreadDef(ostask4, USER_TASK4, osPriorityHigh, 0, 128);
     task4_t = osThreadCreate(osThread(ostask4), NULL);
 #endif
 
