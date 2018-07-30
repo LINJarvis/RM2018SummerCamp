@@ -20,6 +20,7 @@ uint8_t which_storage = 1; // 1 is left, 2 is right
 uint8_t usart3_recv[4];
 int lift_angle = 0;
 extern long pick_time_begin;
+extern long turn_time_begin;
 int time_after_start;
 extern int NO_AUTO_MODE; // set it @ startup.c
 int CV_offest = 0;
@@ -135,7 +136,11 @@ void arm_moto_control(void)
                     lift_angle = 620;
                     break;
                 case 2:
-                    lift_angle = 770;
+                    if_pick = 0; // 3 blocks in this storage
+                    if (which_storage == 1)
+                        which_storage = 2;
+                    else
+                        which_storage = 1;
                     break;
                 case 3:;         // 3 blocks in this storage
                     if_pick = 0; // 3 blocks in this storage
@@ -189,18 +194,18 @@ void arm_moto_control(void)
         }
         if (if_pick == 2)
         {
-            if (time_after_start < 5)
+            if (time_after_start < 3)
             {
                 arms[0][3] = 0; // pitch goes downward
             }
 
-            if (time_after_start >= 5 && time_after_start < 10)
+            if (time_after_start >= 3 && time_after_start < 7)
             {
                 arms[0][0] = 60; // fric goes, brick picked
                 arms[0][1] = -60;
             }
 
-            if (time_after_start >= 10 && time_after_start < 20)
+            if (time_after_start >= 7 && time_after_start < 9)
             {
                 pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
                 arms[0][3] = 70; // pitch goes upward to critical
@@ -265,20 +270,20 @@ void arm_moto_control(void)
             if (time_after_start >= 20 && time_after_start < 27)
             {
                 pid_init(&pid_arms[0][3], 7000, 0, 30, 0, 0);
-                arms[0][3] = 180; // pitch goes from critical to value set
+                arms[0][3] = 150; // pitch goes from critical to value set
             }
 
             if (time_after_start >= 27 && time_after_start < 33)
             {
                 if (height < 2)
 								{
-										pid_init(&pid_arms[0][3], 7000, 0, 20, 0, 1);
-										arms[0][3] = 265; // pitch goes from critical to value set
+										pid_init(&pid_arms[0][3], 7000, 0, 12, 0, 1);
+										arms[0][3] = 255; // pitch goes from critical to value set
 								}
                 else
 								{
-										pid_init(&pid_arms[0][3], 7000, 0, 12, 0, 1);
-										arms[0][3] = 255; // pitch goes from critical to value set
+										pid_init(&pid_arms[0][3], 7000, 0, 35, 0, 1);
+										arms[0][3] = 265; // pitch goes from critical to value set
                 }
             }
 
@@ -290,7 +295,7 @@ void arm_moto_control(void)
 
             if (time_after_start >= 40 && time_after_start < 45)
             {
-                arms[0][0] = -73; // fric
+                arms[0][0] = -70; // fric
             }
 
             if (time_after_start >= 45 && time_after_start < 53)
@@ -324,19 +329,19 @@ void arm_moto_control(void)
         }
         if (if_put == 2)
         {
-            if (time_after_start < 5)
+            /*if (time_after_start < 5)
             {
                 pid_init(&pid_arms[0][3], 7000, 0, -1, 0, 0);
                 arms[0][3] = 50; // pitch goes downward
-            }
+            }*/
 
-            if (time_after_start >= 5 && time_after_start < 10)
+            if (time_after_start >= 0 && time_after_start < 5)
             {
                 arms[0][0] = -30; // fric goes, brick picked
                 arms[0][1] = 30;
             }
 
-            if (time_after_start >= 10 && time_after_start < 20)
+            if (time_after_start >= 5 && time_after_start < 10)
             {
                 pid_init(&pid_arms[0][3], 7000, 0, 50, 0.1, 0.1);
                 arms[0][3] = 70; // pitch goes upward to critical
@@ -413,6 +418,7 @@ void storage_moto_control(void)
 
     storage[2][1] = pid_calc(&pid_storage[1][1], moto_storage[1].speed_rpm,
                              pid_calc(&pid_storage[0][1], moto_storage[1].total_angle / 36.0, storage[0][1]));
+    time_after_start = (HAL_GetTick() - turn_time_begin) / 100;
     if (turn_over == 1)
     {
         if (time_after_start >= 0 && time_after_start < 20)

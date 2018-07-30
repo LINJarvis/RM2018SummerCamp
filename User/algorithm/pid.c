@@ -41,8 +41,8 @@ pid_t pid_trigger_speed = {0};
 
 pid_t pid_test_moto = {0};
 
-pid_t pid_arms[2][4];
-pid_t pid_storage[2][2];
+pid_t pid_arms[2][4] = {0};
+pid_t pid_storage[2][2] = {0};
 
 static void abs_limit(float *a, float ABS_MAX)
 {
