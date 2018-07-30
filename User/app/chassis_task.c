@@ -116,11 +116,11 @@ uint32_t twist_count;
 void get_chassis_mode(void)
 {
   chassis.last_mode = chassis.mode;
-  
+  pc_kb_hook();
   switch (rc.sw2)
   {
     case RC_UP:
-      chassis.mode = CHASSIS_OPEN_LOOP;
+      chassis.mode = CHASSIS_FOLLOW_GIMBAL;
     break;
     
     case RC_MI:
@@ -128,7 +128,7 @@ void get_chassis_mode(void)
     break;
 
     case RC_DN:
-      chassis.mode = CHASSIS_OPEN_LOOP;
+      chassis.mode = CHASSIS_STOP;
     break;
   }
   
