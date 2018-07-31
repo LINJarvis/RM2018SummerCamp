@@ -1,0 +1,13 @@
+[Files]
+"D:\EastFlow_UI\RoboMaster\bin\x64\Release\ilc\AppxManifest.xml" "AppxManifest.xml"
+"D:\EastFlow_UI\RoboMaster\bin\x64\Release\ilc\Assets\LockScreenLogo.scale-200.png" "Assets\LockScreenLogo.scale-200.png"
+"D:\EastFlow_UI\RoboMaster\bin\x64\Release\ilc\Assets\SplashScreen.scale-200.png" "Assets\SplashScreen.scale-200.png"
+"D:\EastFlow_UI\RoboMaster\bin\x64\Release\ilc\Assets\Square150x150Logo.scale-200.png" "Assets\Square150x150Logo.scale-200.png"
+"D:\EastFlow_UI\RoboMaster\bin\x64\Release\ilc\Assets\Square44x44Logo.scale-200.png" "Assets\Square44x44Logo.scale-200.png"
+"D:\EastFlow_UI\RoboMaster\bin\x64\Release\ilc\Assets\Square44x44Logo.targetsize-24_altform-unplated.png" "Assets\Square44x44Logo.targetsize-24_altform-unplated.png"
+"D:\EastFlow_UI\RoboMaster\bin\x64\Release\ilc\Assets\StoreLogo.png" "Assets\StoreLogo.png"
+"D:\EastFlow_UI\RoboMaster\bin\x64\Release\ilc\Assets\Wide310x150Logo.scale-200.png" "Assets\Wide310x150Logo.scale-200.png"
+"D:\EastFlow_UI\RoboMaster\bin\x64\Release\ilc\clrcompression.dll" "clrcompression.dll"
+"D:\EastFlow_UI\RoboMaster\bin\x64\Release\ilc\resources.pri" "resources.pri"
+"D:\EastFlow_UI\RoboMaster\bin\x64\Release\ilc\RoboMaster.dll" "RoboMaster.dll"
+"D:\EastFlow_UI\RoboMaster\bin\x64\Release\ilc\RoboMaster.exe" "RoboMaster.exe"

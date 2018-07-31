@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="RoboMaster.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RoboMaster"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:ConnectionId='2' x:Name="BG" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <TextBlock x:ConnectionId='3' x:Name="Title" VerticalAlignment="Top"
+                       Text="EastFlow"  Height="40" FontSize="24" Margin="25,10,0,0" FontFamily="Impact" Foreground="{ThemeResource SystemControlBackgroundChromeBlackMediumBrush}" HorizontalAlignment="Left" Width="125" FocusVisualPrimaryBrush="Black"                                          
+                       />
+
+        <TextBlock x:ConnectionId='4' x:Name="Time" VerticalAlignment="Top" Text="0s"  Height="20" FontSize="16" Margin="140,16,0,0" FontFamily="Comic Sans MS" Foreground="{ThemeResource SystemControlBackgroundChromeBlackMediumBrush}" HorizontalAlignment="Left" Width="61" FocusVisualPrimaryBrush="Black"                                          
+                       />
+        <CommandBar x:ConnectionId='5' x:Name="bar" IsOpen="False" HorizontalAlignment="Right">
+            <AppBarButton x:ConnectionId='7' x:Name="GenerateButton" Icon="Copy" Label="Gen"                  Width="40"/>
+            <AppBarButton x:ConnectionId='8' x:Name="LoadButton" Icon="SetLockScreen" Label="Load"              Width="40" />
+            <AppBarButton x:ConnectionId='9' x:Name="RedButton" Content = "🕍" Background="Red"                      VerticalAlignment="Center" Width="40"/>
+            <AppBarButton x:ConnectionId='10' x:Name="GreenButton" Content = "🏯" Background="Green"                        VerticalAlignment="Center" Width="40"/>
+            <AppBarButton x:ConnectionId='11' x:Name="BlueButton" Content = "🏰" Background="Blue"                       VerticalAlignment="Center" Width="40"/>
+            <AppBarButton x:ConnectionId='12' x:Name="YellowButton" Content = "🏛" Background="Yellow"                         VerticalAlignment="Center" Width="40"/>
+            <AppBarButton x:ConnectionId='13' Icon="Sync" Label="Rst"                     Width="40"/>
+        </CommandBar>
+
+        <Grid x:ConnectionId='6' x:Name="MainGrid"  Background="LightGray"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,50,0,0" FocusVisualSecondaryBrush="#99808080">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal"
+                    Grid.ColumnSpan="8"
+                    HorizontalAlignment="Right" >
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
+

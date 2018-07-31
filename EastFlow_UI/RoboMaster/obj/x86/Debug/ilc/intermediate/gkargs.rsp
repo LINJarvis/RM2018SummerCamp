@@ -1,0 +1,6 @@
+﻿"D:\EastFlow_UI\RoboMaster\obj\x86\Debug\ilc\in\RoboMaster.exe"
+/Lib:"D:\EastFlow_UI\RoboMaster\obj\x86\Debug\ilc\in"
+/Lib:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.native.compiler\2.1.8\tools\x64\ilc\lib\Private"
+/WinMD:"D:\EastFlow_UI\RoboMaster\obj\x86\Debug\ilc\in\WinMetadata\Windows.winmd"
+/VSTelemetrySessionSettings:"{"AppId":1001,"AppInsightsInstrumentationKey":"f144292e-e3b2-4011-ac90-20e5c03fbce5","AsimovInstrumentationKey":"AIF-312cbd79-9dbb-4c48-a7da-3cc2a931cb70","HostName":"Dev14","Id":"dba8e40a-7646-475e-abe3-4abc257e3887","IsOptedIn":true,"ProcessStartTime":636678209499533328,"UserId":"0a244e25-d5e5-4149-9baa-c456f0499496"}"
+/RdXmlPath:"C:\Users\DJ\.nuget\packages\microsoft.net.native.compiler\2.1.8-arm64rel-26502-00\tools\LibraryXML"

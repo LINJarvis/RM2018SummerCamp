@@ -210,22 +210,22 @@
           <ItemText>time_after_start,0x0A</ItemText>
         </Ww>
         <Ww>
-          <count>2</count>
+          <count>3</count>
           <WinNumber>1</WinNumber>
           <ItemText>arms[0][0],0x0A</ItemText>
         </Ww>
         <Ww>
-          <count>3</count>
+          <count>4</count>
           <WinNumber>1</WinNumber>
           <ItemText>arms[0][1],0x0A</ItemText>
         </Ww>
         <Ww>
-          <count>4</count>
+          <count>5</count>
           <WinNumber>1</WinNumber>
           <ItemText>height,0x0A</ItemText>
         </Ww>
         <Ww>
-          <count>5</count>
+          <count>6</count>
           <WinNumber>1</WinNumber>
           <ItemText>mode,0x0A</ItemText>
         </Ww>
@@ -262,27 +262,27 @@
           <ItemText>moto_arms[3],0x0A</ItemText>
         </Ww>
         <Ww>
-          <count>2</count>
+          <count>6</count>
           <WinNumber>2</WinNumber>
           <ItemText>pid_arms[0][0].get</ItemText>
         </Ww>
         <Ww>
-          <count>3</count>
+          <count>7</count>
           <WinNumber>2</WinNumber>
           <ItemText>pid_arms[0][1].get</ItemText>
         </Ww>
         <Ww>
-          <count>4</count>
+          <count>8</count>
           <WinNumber>2</WinNumber>
           <ItemText>pid_arms[0][1].set</ItemText>
         </Ww>
         <Ww>
-          <count>5</count>
+          <count>9</count>
           <WinNumber>2</WinNumber>
           <ItemText>pid_arms[0][0].set</ItemText>
         </Ww>
         <Ww>
-          <count>6</count>
+          <count>10</count>
           <WinNumber>2</WinNumber>
           <ItemText>which_storage,0x0A</ItemText>
         </Ww>

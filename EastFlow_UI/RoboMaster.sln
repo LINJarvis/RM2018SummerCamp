@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboMaster", "RoboMaster\RoboMaster.csproj", "{AB343A55-4669-4B39-B7F5-9E7370252386}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Debug|ARM.ActiveCfg = Debug|ARM
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Debug|ARM.Build.0 = Debug|ARM
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Debug|ARM.Deploy.0 = Debug|ARM
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Debug|x64.ActiveCfg = Debug|x64
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Debug|x64.Build.0 = Debug|x64
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Debug|x64.Deploy.0 = Debug|x64
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Debug|x86.ActiveCfg = Debug|x86
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Debug|x86.Build.0 = Debug|x86
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Debug|x86.Deploy.0 = Debug|x86
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Release|ARM.ActiveCfg = Release|ARM
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Release|ARM.Build.0 = Release|ARM
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Release|ARM.Deploy.0 = Release|ARM
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Release|x64.ActiveCfg = Release|x64
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Release|x64.Build.0 = Release|x64
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Release|x64.Deploy.0 = Release|x64
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Release|x86.ActiveCfg = Release|x86
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Release|x86.Build.0 = Release|x86
+		{AB343A55-4669-4B39-B7F5-9E7370252386}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D26F9D86-E07B-49EF-9D6B-AE8EB00C92A4}
+	EndGlobalSection
+EndGlobal
